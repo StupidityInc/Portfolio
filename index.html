@@ -3,125 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Premium Design</title>
+  <title>Uri Ben Eliezer | Elite Developer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">PORTFOLIO<span style="color:#444">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="btn-nav">Let's Talk</a></li>
-    </ul>
-    <div class="hamburger"><i class="fas fa-bars"></i></div>
+  <div class="scroll-progress" id="progressBar"></div>
+
+  <nav class="nav">
+    <div class="logo">URIB<span style="color:var(--accent)">.ME</span></div>
+    <div class="nav-links">
+      <a href="#work">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-content reveal">
-      <span class="subtitle">Available for Freelance</span>
-      <h1>Crafting digital <br> experiences with purpose.</h1>
-      <p class="description">I am a creative developer focused on building scalable, clean, and interactive web solutions.</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn primary">View Selected Work</a>
-        <a href="#contact" class="btn secondary">Contact Me</a>
+  <header class="container hero">
+    <div class="fade-in">
+      <div class="status-badge"><div class="status-dot"></div> Open to Internships</div>
+
+      <h1 class="hero-name">Uri Ben Eliezer</h1>
+      <h2 class="hero-subtitle">High-performance <br> <span class="highlight">backend engineering</span>.</h2>
+
+      <p>Elite high school program student specializing in Python, C#, and Java. I build scalable architecture for complex problems.</p>
+
+      <div class="btn-group">
+        <a href="#work" class="btn">View Projects</a>
+        <a href="#" class="btn btn-outline">Download CV <i class="fas fa-arrow-down"></i></a>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <h3>3+</h3>
+          <p>Years Coding</p>
+        </div>
+        <div class="stat-item">
+          <h3>Top 1%</h3>
+          <p>Class Ranking</p>
+        </div>
+        <div class="stat-item">
+          <h3>10+</h3>
+          <p>Elite Projects</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="work" class="container section">
+    <h2 class="section-title fade-in">Selected Work</h2>
+    <div class="grid">
+
+      <div class="card fade-in">
+        <i class="fas fa-chart-line card-icon"></i>
+        <h3>Data Analysis Engine</h3>
+        <p>High-throughput Python pipeline processing financial datasets with optimized algorithms for real-time insights.</p>
+        <div class="tech-tags">
+          <span class="tag">Python</span> <span class="tag">Pandas</span> <span class="tag">FastAPI</span>
+        </div>
+        <a href="https://github.com/StupidityInc" target="_blank" class="card-link">View Code &rarr;</a>
+      </div>
+
+      <div class="card fade-in">
+        <i class="fas fa-terminal card-icon"></i>
+        <h3>Enterprise System</h3>
+        <p>Robust .NET Core architecture featuring strict type safety, asynchronous memory management, and WPF integration.</p>
+        <div class="tech-tags">
+          <span class="tag">C#</span> <span class="tag">.NET 8</span> <span class="tag">WPF</span>
+        </div>
+        <a href="https://github.com/StupidityInc" target="_blank" class="card-link">View Code &rarr;</a>
+      </div>
+
+      <div class="card fade-in">
+        <i class="fas fa-network-wired card-icon"></i>
+        <h3>Distributed Service</h3>
+        <p>Scalable microservice backed by Java Spring Boot, designed for zero-downtime deployments and high concurrency.</p>
+        <div class="tech-tags">
+          <span class="tag">Java</span> <span class="tag">Spring</span> <span class="tag">Docker</span>
+        </div>
+        <a href="https://github.com/StupidityInc" target="_blank" class="card-link">View Code &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about" class="container section">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <h2 class="section-title">About Me</h2>
+        <p>I believe that <span style="color:var(--text); font-weight:600;">simplicity is the ultimate sophistication</span>. My approach to development is grounded in writing clean, maintainable code while delivering pixel-perfect architecture.</p>
+        <p>With a background in computer science and a passion for modern aesthetics, I bridge the gap between technical complexity and user experience.</p>
+      </div>
+      <div class="skills-wrapper fade-in">
+        <h3 style="font-size:1.2rem; margin-bottom:20px; color:var(--text);">Technical Arsenal</h3>
+        <div class="tech-tags">
+          <span class="tag">JavaScript (ES6+)</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React / Next.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">AWS / Azure</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Git</span>
+          <span class="tag">Linux</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Selected Work</h2>
-        <p class="section-desc">A collection of projects where design meets robust engineering.</p>
-      </div>
+  <section id="contact" class="container contact-section fade-in">
+    <button class="copy-email-btn" onclick="copyEmail()">
+      contact@urib.me
+    </button>
+    <div id="copy-feedback">COPIED TO CLIPBOARD</div>
 
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="card-image"><i class="fas fa-cube"></i></div>
-          <div class="card-content">
-            <h3>Fintech Dashboard</h3>
-            <p>A high-performance analytics platform handling real-time financial data visualization.</p>
-            <div class="tech-stack">
-              <span class="tech-pill">React</span>
-              <span class="tech-pill">D3.js</span>
-              <span class="tech-pill">Node</span>
-            </div>
-            <a href="#" class="card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="card-image"><i class="fas fa-layer-group"></i></div>
-          <div class="card-content">
-            <h3>E-Commerce Engine</h3>
-            <p>Scalable headless commerce solution designed for speed and conversion optimization.</p>
-            <div class="tech-stack">
-              <span class="tech-pill">Next.js</span>
-              <span class="tech-pill">Stripe</span>
-              <span class="tech-pill">Redis</span>
-            </div>
-            <a href="#" class="card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="card-image"><i class="fas fa-mobile-alt"></i></div>
-          <div class="card-content">
-            <h3>Mobile Health App</h3>
-            <p>Cross-platform mobile application focused on user accessibility and simple UI patterns.</p>
-            <div class="tech-stack">
-              <span class="tech-pill">React Native</span>
-              <span class="tech-pill">Firebase</span>
-            </div>
-            <a href="#" class="card-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <h2 class="section-title" style="margin-bottom: 30px;">About Me</h2>
-          <p>I believe that <span class="strong-white">simplicity is the ultimate sophistication</span>. My approach to development is grounded in writing clean, maintainable code while delivering pixel-perfect interfaces.</p>
-          <p>With a background in computer science and a passion for modern aesthetics, I bridge the gap between technical complexity and user experience.</p>
-        </div>
-        <div class="skills-wrapper reveal">
-          <h3>Technical Arsenal</h3>
-          <div class="skill-tags">
-            <span>JavaScript (ES6+)</span>
-            <span>TypeScript</span>
-            <span>React / Next.js</span>
-            <span>Node.js</span>
-            <span>PostgreSQL</span>
-            <span>AWS / Azure</span>
-            <span>Docker</span>
-            <span>Git</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section container reveal">
-    <h2 class="contact-title">Let's create something.</h2>
-    <a href="mailto:your.email@example.com" class="email-link">your.email@example.com</a>
     <div class="socials">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/uri.be_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/StupidityInc" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://urib.me" target="_blank"><i class="fas fa-globe"></i></a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2024 Portfolio. Designed with precision.</p>
+    <p>&copy; 2025 Uri Ben Eliezer.</p>
   </footer>
 
   <script src="script.js"></script>
