@@ -3,228 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio [Fedora Edition]</title>
+  <title>Portfolio | Professional Developer</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header class="ide-toolbar">
-    <div class="toolbar-left">
-      <i class="fas fa-bars menu-icon"></i>
-      <span class="app-icon"><i class="fas fa-cube"></i></span> <span class="project-name">portfolio-v3</span>
+  <div class="cursor-dot"></div>
+  <div class="cursor-circle"></div>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">Dev<span class="dot">.</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Journey</a></li>
+        <li><a href="#toolkit">My Gear</a></li>
+        <li><a href="#contact" class="btn-nav">Contact</a></li>
+      </ul>
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
     </div>
-    <div class="toolbar-center">
-      <div class="run-widget">
-        <span class="config-name">main.py</span>
-        <button class="btn-run"><i class="fas fa-play"></i></button>
-        <button class="btn-debug"><i class="fas fa-bug"></i></button>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-bg-accent"></div>
+    <div class="container hero-content">
+      <span class="badge fade-in">Available for new projects</span>
+      <h1 class="fade-in-up">Building digital products with <br> <span class="text-primary">precision & purpose.</span></h1>
+      <p class="hero-text fade-in-up delay-1">I transform complex problems into elegant, scalable solutions. Specialized in React, Node.js, and Cloud Architecture.</p>
+      <div class="hero-btns fade-in-up delay-2">
+        <a href="#projects" class="btn primary">View My Work</a>
+        <a href="#contact" class="btn secondary">Get in Touch</a>
       </div>
     </div>
-    <div class="toolbar-right">
-      <span class="badge fedora-badge"><i class="fab fa-fedora"></i> Fedora 40</span>
-      <i class="fas fa-cog settings-icon"></i>
-      <i class="fas fa-user-circle user-icon"></i>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="glass-container">
+        <div class="split-layout">
+
+          <div class="about-text">
+            <h2 class="section-title">About Me</h2>
+            <p>I am a developer driven by structure and efficiency. With a background in computer science and a passion for clean code, I build applications that are not only functional but maintainable.</p>
+            <p>When I'm not coding, I'm optimizing my development environment or contributing to open-source projects.</p>
+
+            <div class="stats-row">
+              <div class="stat-item">
+                <h3>5+</h3>
+                <p>Years Exp.</p>
+              </div>
+              <div class="stat-item">
+                <h3>20+</h3>
+                <p>Projects</p>
+              </div>
+              <div class="stat-item">
+                <h3>100%</h3>
+                <p>Commitment</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <h3>Technical Expertise</h3>
+            <div class="skill-group">
+              <span class="skill-label">Frontend</span>
+              <div class="tags">
+                <span>React</span><span>TypeScript</span><span>Tailwind</span><span>HTML/CSS</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <span class="skill-label">Backend</span>
+              <div class="tags">
+                <span>Node.js</span><span>Python</span><span>PostgreSQL</span><span>Azure</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <span class="skill-label">DevOps</span>
+              <div class="tags">
+                <span>Docker</span><span>Git</span><span>Linux</span><span>CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <div class="ide-body">
+  <section id="experience" class="section bg-light-pattern">
+    <div class="container">
+      <h2 class="section-title center">My Journey</h2>
+      <div class="timeline">
 
-    <aside class="activity-bar">
-      <div class="tool-icon active"><i class="fas fa-folder"></i></div>
-      <div class="tool-icon"><i class="fas fa-search"></i></div>
-      <div class="tool-icon"><i class="fas fa-code-branch"></i></div>
-      <div class="tool-spacer"></div>
-      <div class="tool-icon"><i class="fas fa-terminal"></i></div>
-    </aside>
-
-    <aside class="sidebar-panel">
-      <div class="panel-header">
-        <span>Project</span>
-        <div class="panel-actions">
-          <i class="fas fa-minus"></i>
-        </div>
-      </div>
-      <div class="file-tree">
-        <div class="tree-item folder expanded">
-          <i class="fas fa-chevron-down"></i> <i class="fas fa-folder folder-icon"></i> portfolio
-        </div>
-
-        <div class="tree-group">
-          <div class="tree-item file active" onclick="openTab('main')">
-            <span class="indent"></span>
-            <i class="fab fa-python python-icon"></i> main.py
-          </div>
-          <div class="tree-item file" onclick="openTab('projects')">
-            <span class="indent"></span>
-            <i class="fas fa-brackets-curly json-icon"></i> projects.json
-          </div>
-          <div class="tree-item file" onclick="openTab('about')">
-            <span class="indent"></span>
-            <i class="fab fa-markdown md-icon"></i> about_me.md
-          </div>
-          <div class="tree-item file" onclick="openTab('fedora')">
-            <span class="indent"></span>
-            <i class="fas fa-terminal sh-icon"></i> fedora_config.sh
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content card-hover">
+            <span class="date">2023 - Present</span>
+            <h3>Senior Frontend Engineer</h3>
+            <span class="company">Tech Solutions Inc.</span>
+            <p>Leading the migration of legacy codebases to modern React architectures. Improved site performance by 40%.</p>
           </div>
         </div>
 
-        <div class="tree-item folder collapsed">
-          <i class="fas fa-chevron-right"></i> <i class="fas fa-folder folder-icon"></i> node_modules
-        </div>
-        <div class="tree-item folder collapsed">
-          <i class="fas fa-chevron-right"></i> <i class="fas fa-folder folder-icon"></i> .git
-        </div>
-      </div>
-    </aside>
-
-    <main class="editor-area">
-
-      <div class="editor-tabs">
-        <div class="tab active" id="tab-main" onclick="openTab('main')">
-          <i class="fab fa-python python-icon"></i> main.py
-          <i class="fas fa-times close-tab"></i>
-        </div>
-        <div class="tab" id="tab-projects" onclick="openTab('projects')">
-          <i class="fas fa-brackets-curly json-icon"></i> projects.json
-          <i class="fas fa-times close-tab"></i>
-        </div>
-        <div class="tab" id="tab-about" onclick="openTab('about')">
-          <i class="fab fa-markdown md-icon"></i> about_me.md
-          <i class="fas fa-times close-tab"></i>
-        </div>
-        <div class="tab" id="tab-fedora" onclick="openTab('fedora')">
-          <i class="fas fa-terminal sh-icon"></i> fedora_config.sh
-          <i class="fas fa-times close-tab"></i>
-        </div>
-      </div>
-
-      <div class="breadcrumbs">
-        portfolio <i class="fas fa-chevron-right"></i> src <i class="fas fa-chevron-right"></i> <span id="current-file-name">main.py</span>
-      </div>
-
-      <div class="code-container">
-
-        <div id="content-main" class="code-content active">
-          <div class="lines"><span class="ln">1</span><br><span class="ln">2</span><br><span class="ln">3</span><br><span class="ln">4</span><br><span class="ln">5</span><br><span class="ln">6</span><br><span class="ln">7</span><br><span class="ln">8</span><br><span class="ln">9</span><br><span class="ln">10</span><br><span class="ln">11</span><br><span class="ln">12</span><br><span class="ln">13</span><br><span class="ln">14</span></div>
-          <pre><code><span class="kwd">class</span> <span class="cls">Developer</span>:
-    <span class="kwd">def</span> <span class="func">__init__</span>(<span class="self">self</span>):
-        <span class="self">self</span>.name = <span class="str">"[Your Name]"</span>
-        <span class="self">self</span>.role = <span class="str">"Full Stack Developer"</span>
-        <span class="self">self</span>.os = <span class="str">"Fedora Linux"</span>
-        <span class="self">self</span>.editor = <span class="str">"PyCharm Pro"</span>
-
-    <span class="kwd">def</span> <span class="func">introduce</span>(<span class="self">self</span>):
-        <span class="doc">"""
-        Welcome to my portfolio.
-        I build robust, scalable applications using
-        modern technologies.
-        """</span>
-        <span class="kwd">print</span>(<span class="fstr">f"Hi, I'm {self.name}!"</span>)
-        <span class="kwd">print</span>(<span class="str">"Explore the file tree to see my work."</span>)
-
-<span class="kwd">if</span> __name__ == <span class="str">"__main__"</span>:
-    dev = <span class="cls">Developer</span>()
-    dev.introduce()
-</code></pre>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content card-hover">
+            <span class="date">2021 - 2023</span>
+            <h3>Full Stack Developer</h3>
+            <span class="company">Creative Agency</span>
+            <p>Developed custom e-commerce solutions and client portfolios using Node.js and MongoDB.</p>
+          </div>
         </div>
 
-        <div id="content-projects" class="code-content">
-          <div class="lines"><span class="ln">1</span><br><span class="ln">2</span><br><span class="ln">3</span><br><span class="ln">4</span><br><span class="ln">5</span><br><span class="ln">6</span><br><span class="ln">7</span><br><span class="ln">8</span><br><span class="ln">9</span><br><span class="ln">10</span><br><span class="ln">11</span><br><span class="ln">12</span><br><span class="ln">13</span><br><span class="ln">14</span><br><span class="ln">15</span><br><span class="ln">16</span><br><span class="ln">17</span><br><span class="ln">18</span></div>
-          <pre><code>[
-  {
-    <span class="prop">"name"</span>: <span class="str">"Cloud_SaaS_Platform"</span>,
-    <span class="prop">"stack"</span>: [<span class="str">"React"</span>, <span class="str">"Django"</span>, <span class="str">"AWS"</span>],
-    <span class="prop">"status"</span>: <span class="str">"Production"</span>,
-    <span class="prop">"url"</span>: <span class="str">"github.com/user/cloud-saas"</span>
-  },
-  {
-    <span class="prop">"name"</span>: <span class="str">"Fedora_Auto_Rice"</span>,
-    <span class="prop">"description"</span>: <span class="str">"Scripts to setup GNOME/Hyprland"</span>,
-    <span class="prop">"stack"</span>: [<span class="str">"Bash"</span>, <span class="str">"Python"</span>],
-    <span class="prop">"status"</span>: <span class="str">"Open Source"</span>
-  },
-  {
-    <span class="prop">"name"</span>: <span class="str">"Portfolio_IDE"</span>,
-    <span class="prop">"description"</span>: <span class="str">"This website!"</span>,
-    <span class="prop">"stack"</span>: [<span class="str">"HTML"</span>, <span class="str">"CSS"</span>, <span class="str">"JS"</span>],
-    <span class="prop">"status"</span>: <span class="str">"Live"</span>
-  }
-]</code></pre>
-        </div>
-
-        <div id="content-about" class="code-content">
-          <div class="lines"><span class="ln">1</span><br><span class="ln">2</span><br><span class="ln">3</span><br><span class="ln">4</span><br><span class="ln">5</span><br><span class="ln">6</span><br><span class="ln">7</span><br><span class="ln">8</span><br><span class="ln">9</span></div>
-          <pre class="markdown-preview">
-<span class="md-h1"># About Me</span>
-
-I am a passionate developer who loves **Open Source** and **Linux**.
-I've been using <span class="highlight">Fedora</span> as my daily driver for 3 years.
-
-## Skills
-- **Languages:** Python, JavaScript, Rust
-- **Tools:** Docker, Git, JetBrains IDEs
-- **Hobbies:** Distro Hopping, Mechanical Keyboards
-          </pre>
-        </div>
-
-        <div id="content-fedora" class="code-content">
-          <div class="lines"><span class="ln">1</span><br><span class="ln">2</span><br><span class="ln">3</span><br><span class="ln">4</span><br><span class="ln">5</span><br><span class="ln">6</span><br><span class="ln">7</span><br><span class="ln">8</span><br><span class="ln">9</span><br><span class="ln">10</span><br><span class="ln">11</span><br><span class="ln">12</span><br><span class="ln">13</span></div>
-          <pre><code><span class="comment">#!/bin/bash</span>
-<span class="comment"># My Development Setup</span>
-
-<span class="kwd">echo</span> <span class="str">"Initializing Fedora Workstation..."</span>
-
-<span class="comment"># 1. Package Manager</span>
-<span class="func">sudo</span> dnf update -y
-<span class="func">sudo</span> dnf install git zsh neovim docker
-
-<span class="comment"># 2. IDE Installation</span>
-<span class="comment"># I prefer the JetBrains Toolbox App</span>
-<span class="func">./jetbrains-toolbox</span> --install pycharm-professional
-
-<span class="comment"># 3. Terminal Rice</span>
-<span class="comment"># Oh-My-Zsh with Powerlevel10k theme</span>
-<span class="func">sh</span> -c <span class="str">"$(curl -fsSL raw.github.com/ohmyzsh/install.sh)"</span>
-</code></pre>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content card-hover">
+            <span class="date">2018 - 2021</span>
+            <h3>B.S. Computer Science</h3>
+            <span class="company">University of Technology</span>
+            <p>Graduated with honors. Specialized in Algorithms and Data Structures.</p>
+          </div>
         </div>
 
       </div>
-
-      <div class="terminal-panel">
-        <div class="terminal-header">
-          <span>Terminal: Local</span>
-          <div class="term-actions"><i class="fas fa-chevron-down"></i> <i class="fas fa-times"></i></div>
-        </div>
-        <div class="terminal-body">
-          <div class="term-line">
-            <span class="prompt">[visitor@fedora-portfolio ~]$</span> <span class="cmd">cat welcome.txt</span>
-          </div>
-          <div class="term-line output">
-            Welcome to the interactive portfolio. Click the file names in the sidebar to navigate.
-          </div>
-          <div class="term-line">
-            <span class="prompt">[visitor@fedora-portfolio ~]$</span> <span class="cmd blinking-cursor">_</span>
-          </div>
-        </div>
-      </div>
-
-    </main>
-  </div>
-
-  <footer class="status-bar">
-    <div class="status-left">
-      <span><i class="fas fa-code-branch"></i> main</span>
-      <span class="spacer"></span>
-      <span class="error-warn"><i class="fas fa-times-circle"></i> 0</span>
-      <span class="error-warn"><i class="fas fa-exclamation-triangle"></i> 0</span>
     </div>
-    <div class="status-right">
-      <span>UTF-8</span>
-      <span>4 spaces</span>
-      <span>Python 3.11</span>
-      <span><i class="fas fa-memory"></i> 124M of 2048M</span>
+  </section>
+
+  <section id="toolkit" class="section">
+    <div class="container">
+      <h2 class="section-title center">My Gear</h2>
+      <p class="section-subtitle center">The battle station driving my productivity.</p>
+
+      <div class="bento-grid">
+
+        <div class="bento-box hardware-box">
+          <div class="bento-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Hardware</h3>
+          <ul class="gear-list">
+            <li><strong>MacBook Pro M1</strong> <span>Daily Driver</span></li>
+            <li><strong>LG UltraFine 4K</strong> <span>Display</span></li>
+            <li><strong>Keychron K2</strong> <span>Brown Switches</span></li>
+            <li><strong>MX Master 3</strong> <span>Logitech</span></li>
+          </ul>
+        </div>
+
+        <div class="bento-box software-box">
+          <div class="bento-icon"><i class="fas fa-code"></i></div>
+          <h3>Software</h3>
+          <ul class="gear-list compact">
+            <li>VS Code (Dracula)</li>
+            <li>PowerShell / Zsh</li>
+            <li>Firefox Dev Edition</li>
+            <li>Obsidian Notes</li>
+          </ul>
+        </div>
+
+        <div class="bento-box services-box">
+          <div class="bento-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Services</h3>
+          <ul class="gear-list compact">
+            <li>Azure Static Apps</li>
+            <li>GitHub Actions</li>
+            <li>Proton VPN</li>
+            <li>Bitwarden</li>
+          </ul>
+        </div>
+
+        <div class="bento-box decorative-box">
+          <h3><i class="fas fa-bolt"></i></h3>
+          <p>Powered by Caffeine & Code</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section bg-dark text-white">
+    <div class="container center-text">
+      <h2 class="section-title white">Let's Work Together</h2>
+      <p class="contact-desc">I'm currently available for freelance work or full-time opportunities.</p>
+      <a href="mailto:your.email@example.com" class="btn primary-white">Say Hello</a>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 [Your Name]. All rights reserved.</p>
     </div>
   </footer>
 
