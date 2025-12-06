@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. Custom Cursor Logic (Optimized) ---
+  // --- 1. Custom Cursor ---
   const cursorDot = document.querySelector('.cursor-dot');
   const cursorCircle = document.querySelector('.cursor-circle');
   let mouseX = 0, mouseY = 0;
@@ -28,85 +28,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateCursor();
 
-    // Hover Effects
-    const interactiveElements = document.querySelectorAll('a, button, .bento-box, .timeline-content, .setup-card, .skill-group span');
-    interactiveElements.forEach(el => {
+    // Hover Triggers
+    const hoverTargets = document.querySelectorAll('a, button, .project-card, .skill-pill');
+    hoverTargets.forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
     });
   }
 
-  // --- 2. Scroll Animations (Intersection Observer) ---
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-  };
+  // --- 2. Scroll Fade-in Animation ---
+  const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show-fade');
-        observer.unobserve(entry.target); // Only animate once
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  // Select elements to animate
-  const animateElements = document.querySelectorAll('.hero-content > *, .section-title, .about-text, .skills-card, .timeline-item, .bento-box, .setup-card');
-  animateElements.forEach(el => {
+  const fadeElements = document.querySelectorAll('.fade-in, .project-card, .timeline-item');
+  fadeElements.forEach(el => {
     el.classList.add('hidden-fade');
     observer.observe(el);
   });
 
-  // --- 3. 3D Tilt Effect (Brave Mode) ---
-  // Applies a subtle 3D tilt to cards when hovered
-  const tiltCards = document.querySelectorAll('.bento-box, .setup-card, .timeline-content');
-
+  // --- 3. 3D Tilt Effect for Project Cards ---
+  const tiltCards = document.querySelectorAll('.project-card');
   tiltCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
-      if (window.innerWidth < 768) return; // Disable on mobile
+      if (window.innerWidth < 768) return;
 
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
-      const rotateY = ((x - centerX) / centerX) * 5;
+      const rotateX = ((y - centerY) / centerY) * -3; // Subtle tilt
+      const rotateY = ((x - centerX) / centerX) * 3;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-      card.style.transition = 'transform 0.1s ease';
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
-      card.style.transition = 'transform 0.5s ease'; // Smooth reset
+      card.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
     });
   });
 
-  // --- 4. Mobile Menu ---
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const isClosed = navLinks.style.display === 'none' || navLinks.style.display === '';
-      if (isClosed) {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '80px';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = 'rgba(255,255,255,0.95)';
-        navLinks.style.backdropFilter = 'blur(10px)';
-        navLinks.style.padding = '20px';
-        navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-      } else {
-        navLinks.style.display = 'none';
-      }
-    });
-  }
 });

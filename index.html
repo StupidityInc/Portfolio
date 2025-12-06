@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Professional Developer</title>
+  <title>Portfolio | Premium Design</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,191 +15,147 @@
 
   <nav class="navbar">
     <div class="container nav-container">
-      <div class="logo">Dev<span class="dot">.</span></div>
+      <div class="logo">URIB<span style="color:var(--text-muted)">.ME</span></div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Work</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Journey</a></li>
-        <li><a href="#toolkit">My Gear</a></li>
-        <li><a href="setup.html">Setup</a></li> <li><a href="#contact" class="btn-nav">Contact</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="hamburger"><i class="fas fa-bars"></i></div>
+      <a href="#contact" class="btn primary" style="padding: 8px 20px; font-size: 0.8rem;">Let's Talk</a>
     </div>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-bg-accent"></div>
-    <div class="container hero-content">
-      <span class="badge">Available for new projects</span>
-      <h1>Building digital products with <br> <span class="text-primary">precision & purpose.</span></h1>
-      <p class="hero-text">I transform complex problems into elegant, scalable solutions. Specialized in React, Node.js, and Cloud Architecture.</p>
-      <div class="hero-btns">
-        <a href="#experience" class="btn primary">View My Work</a>
-        <a href="#contact" class="btn secondary">Get in Touch</a>
+  <section class="hero container">
+    <div class="hero-content">
+      <h1 class="fade-in">Designing the future,<br>one pixel at a time.</h1>
+      <p class="hero-text fade-in">I am a full-stack engineer specialized in building exceptional digital experiences. Currently focused on secure architecture and scalable systems.</p>
+      <div class="hero-btns fade-in">
+        <a href="#projects" class="btn primary">See Selected Work</a>
+        <a href="#about" class="btn secondary">More About Me</a>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <div class="container">
-      <div class="glass-container">
-        <div class="split-layout">
+  <section id="projects" class="section container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Selected Work</h2>
+      <p class="section-subtitle">A showcase of technical proficiency and design capability.</p>
+    </div>
 
-          <div class="about-text">
-            <h2 class="section-title">About Me</h2>
-            <p>I am a developer driven by structure and efficiency. With a background in computer science and a passion for clean code, I build applications that are not only functional but maintainable.</p>
-            <p>When I'm not coding, I'm optimizing my development environment or contributing to open-source projects.</p>
+    <div class="project-grid">
 
-            <div class="stats-row">
-              <div class="stat-item">
-                <h3>5+</h3>
-                <p>Years Exp.</p>
-              </div>
-              <div class="stat-item">
-                <h3>20+</h3>
-                <p>Projects</p>
-              </div>
-              <div class="stat-item">
-                <h3>100%</h3>
-                <p>Commitment</p>
-              </div>
-            </div>
+      <article class="project-card fade-in">
+        <div class="project-image">
+          <i class="fas fa-layer-group project-placeholder"></i>
+        </div>
+        <div class="project-content">
+          <h3>SaaS Dashboard</h3>
+          <p>A high-performance analytics platform for real-time data visualization using React and D3.js.</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">D3</span>
           </div>
+          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
 
-          <div class="skills-card">
-            <h3 style="margin-bottom: 20px;">Technical Expertise</h3>
-            <div class="skill-group">
-              <span class="skill-label">Frontend</span>
-              <div class="tags">
-                <span>React</span><span>TypeScript</span><span>Tailwind</span><span>HTML/CSS</span>
-              </div>
-            </div>
-            <div class="skill-group">
-              <span class="skill-label">Backend</span>
-              <div class="tags">
-                <span>Node.js</span><span>Python</span><span>PostgreSQL</span><span>Azure</span>
-              </div>
-            </div>
-            <div class="skill-group">
-              <span class="skill-label">DevOps</span>
-              <div class="tags">
-                <span>Docker</span><span>Git</span><span>Linux</span><span>CI/CD</span>
-              </div>
-            </div>
+      <article class="project-card fade-in">
+        <div class="project-image">
+          <i class="fas fa-shield-alt project-placeholder"></i>
+        </div>
+        <div class="project-content">
+          <h3>SecureChat Protocol</h3>
+          <p>End-to-end encrypted messaging application focusing on user privacy and zero-knowledge architecture.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Cryptography</span>
+            <span class="tag">Socket.io</span>
           </div>
+          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
 
+      <article class="project-card fade-in">
+        <div class="project-image">
+          <i class="fas fa-shopping-bag project-placeholder"></i>
+        </div>
+        <div class="project-content">
+          <h3>E-Commerce Core</h3>
+          <p>Scalable backend infrastructure for handling thousands of concurrent transactions.</p>
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+          </div>
+          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="about" class="section container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <h2 class="section-title">About Me</h2>
+        <p>I believe that code is more than just instructions for a computer; it's a tool to solve human problems. My journey began with a curiosity for how things work, leading me to dive deep into Linux environments and backend security.</p>
+        <p>Today, I focus on building software that is not only functional but also secure by design and beautiful to use.</p>
+      </div>
+
+      <div class="skills fade-in">
+        <h3 style="margin-bottom: 20px;">Technologies</h3>
+        <div class="skill-list">
+          <span class="skill-pill">JavaScript (ES6+)</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Rust</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Linux / Fedora</span>
+          <span class="skill-pill">PostgreSQL</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="experience" class="section bg-light-pattern">
-    <div class="container">
-      <h2 class="section-title center">My Journey</h2>
-      <p class="section-subtitle center">The path I've taken to master my craft.</p>
-      <div class="timeline">
+  <section id="experience" class="section container">
+    <h2 class="section-title fade-in">Journey</h2>
+    <div class="timeline fade-in">
 
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="date">2023 - Present</span>
-            <h3>Senior Frontend Engineer</h3>
-            <span class="company">Tech Solutions Inc.</span>
-            <p>Leading the migration of legacy codebases to modern React architectures. Improved site performance by 40%.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="date">2021 - 2023</span>
-            <h3>Full Stack Developer</h3>
-            <span class="company">Creative Agency</span>
-            <p>Developed custom e-commerce solutions and client portfolios using Node.js and MongoDB.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="date">2018 - 2021</span>
-            <h3>B.S. Computer Science</h3>
-            <span class="company">University of Technology</span>
-            <p>Graduated with honors. Specialized in Algorithms and Data Structures.</p>
-          </div>
-        </div>
-
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <h3>Senior Engineer</h3>
+        <span class="role">Tech Corp • 2023 - Present</span>
+        <p>Leading the backend migration team. Optimized API response times by 40%.</p>
       </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <h3>Software Developer</h3>
+        <span class="role">Startup Inc • 2021 - 2023</span>
+        <p>Developed full-stack features for a rapid-growth SaaS product.</p>
+      </div>
+
     </div>
   </section>
 
-  <section id="toolkit" class="section">
-    <div class="container">
-      <h2 class="section-title center">My Gear</h2>
-      <p class="section-subtitle center">The battle station driving my productivity.</p>
+  <section id="contact" class="cta-section container fade-in">
+    <h2>Ready to build something great?</h2>
+    <p style="color:var(--text-muted); margin-bottom: 30px;">I am currently open for new opportunities.</p>
+    <a href="mailto:contact@urib.me" class="btn primary">Get in Touch</a>
 
-      <div class="bento-grid">
-
-        <div class="bento-box hardware-box">
-          <div class="bento-icon"><i class="fas fa-microchip"></i></div>
-          <h3>Hardware</h3>
-          <ul class="gear-list">
-            <li><strong>MacBook Pro M1</strong> <span>Daily Driver</span></li>
-            <li><strong>LG UltraFine 4K</strong> <span>Display</span></li>
-            <li><strong>Keychron K2</strong> <span>Brown Switches</span></li>
-            <li><strong>MX Master 3</strong> <span>Logitech</span></li>
-          </ul>
-        </div>
-
-        <div class="bento-box software-box">
-          <div class="bento-icon"><i class="fas fa-code"></i></div>
-          <h3>Software</h3>
-          <ul class="gear-list compact">
-            <li>VS Code (Dracula)</li>
-            <li>PowerShell / Zsh</li>
-            <li>Firefox Dev Edition</li>
-            <li>Obsidian Notes</li>
-          </ul>
-        </div>
-
-        <div class="bento-box services-box">
-          <div class="bento-icon"><i class="fas fa-cloud"></i></div>
-          <h3>Services</h3>
-          <ul class="gear-list compact">
-            <li>Azure Static Apps</li>
-            <li>GitHub Actions</li>
-            <li>Proton VPN</li>
-            <li>Bitwarden</li>
-          </ul>
-        </div>
-
-        <div class="bento-box decorative-box">
-          <h3><i class="fas fa-bolt"></i></h3>
-          <p>Powered by Caffeine & Code</p>
-        </div>
-
-      </div>
+    <div class="socials">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
   </section>
 
-  <section id="contact" class="section bg-dark text-white">
-    <div class="container center-text">
-      <h2 class="section-title white">Let's Work Together</h2>
-      <p class="contact-desc">I'm currently available for freelance work or full-time opportunities.</p>
-      <a href="mailto:your.email@example.com" class="btn primary-white">Say Hello</a>
-
-      <div class="social-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2024 [Your Name]. All rights reserved.</p>
-    </div>
+  <footer>
+    <p>&copy; 2024 Uri Ben Eliezer. Crafted with precision.</p>
   </footer>
 
   <script src="script.js"></script>
