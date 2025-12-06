@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("progressBar").style.width = scrolled + "%";
   });
 
-  // 3. Mobile Menu Toggle
+  // 3. Mobile Menu Logic
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-links a');
 
   if (hamburger && navLinks) {
+    // Toggle menu
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-
-      // Optional: Toggle icon between bars and times (X)
       const icon = hamburger.querySelector('i');
       if (navLinks.classList.contains('active')) {
         icon.classList.remove('fa-bars');
@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Close menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
         navLinks.classList.remove('active');
         hamburger.querySelector('i').classList.remove('fa-times');
         hamburger.querySelector('i').classList.add('fa-bars');

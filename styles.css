@@ -1,6 +1,5 @@
 /* --- 🎨 THEME CONTROLLER --- */
 :root {
-  /* GLOBAL DEFAULTS */
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --easing: cubic-bezier(0.16, 1, 0.3, 1);
@@ -13,18 +12,6 @@
   --accent: #00FF85;
   --accent-glow: rgba(0, 255, 133, 0.15);
   --border: rgba(255, 255, 255, 0.08);
-
-  /* --- OPTION 2: KINETIC AMBER (Uncomment to use) --- */
-  /*
-  --accent: #FFD600;
-  --accent-glow: rgba(255, 214, 0, 0.15);
-  */
-
-  /* --- OPTION 3: CYBER CYAN (Uncomment to use) --- */
-  /*
-  --accent: #00E5FF;
-  --accent-glow: rgba(0, 229, 255, 0.15);
-  */
 }
 
 /* --- RESET & BASE --- */
@@ -35,7 +22,7 @@ body {
   background-color: var(--bg); color: var(--text);
   font-family: var(--font-main); line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden; /* Prevents mobile side-scroll */
 }
 
 a { text-decoration: none; color: inherit; transition: 0.2s; }
@@ -47,11 +34,11 @@ ul { list-style: none; }
   width: 0%; z-index: 2000; box-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* --- NAVBAR (DESKTOP DEFAULT) --- */
+/* --- NAVBAR --- */
 .nav {
   position: fixed; top: 0; width: 100%; height: 80px;
   display: flex; align-items: center; justify-content: space-between;
-  background: color-mix(in srgb, var(--bg), transparent 10%);
+  background: rgba(16, 18, 22, 0.85); /* Slightly transparent */
   backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
   z-index: 1000; padding: 0 5%;
 }
@@ -59,29 +46,27 @@ ul { list-style: none; }
 .logo { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.05em; font-family: var(--font-mono); }
 .logo span { color: var(--accent); }
 
-/* Desktop Menu Links */
+/* Desktop Links */
 .nav-links { display: flex; gap: 30px; }
-.nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+.nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; position: relative; }
 .nav-links a:hover { color: var(--accent); }
 
 /* Hamburger (Hidden on Desktop) */
-.hamburger { display: none; font-size: 1.5rem; color: var(--text); cursor: pointer; }
+.hamburger { display: none; font-size: 1.5rem; color: var(--text); cursor: pointer; padding: 10px; }
 
 /* --- HERO SECTION --- */
 .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; padding-top: 60px; }
 
-/* Status Badge */
 .status-badge {
   display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px;
-  border-radius: 50px; background: color-mix(in srgb, var(--accent), transparent 90%);
+  border-radius: 50px; background: rgba(0, 255, 133, 0.05);
   border: 1px solid var(--border); color: var(--text); font-size: 0.8rem; font-weight: 600;
   margin-bottom: 24px; width: fit-content; font-family: var(--font-mono);
 }
 .status-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); animation: pulse 2s infinite; }
 @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
-/* Name & Title */
 .hero-name {
   font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: var(--accent);
   line-height: 1.1; letter-spacing: -0.03em; text-shadow: 0 0 40px var(--accent-glow);
@@ -92,7 +77,6 @@ ul { list-style: none; }
 
 .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
 
-/* Stats */
 .stats-row {
   display: flex; gap: 40px; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 30px;
 }
@@ -128,14 +112,13 @@ ul { list-style: none; }
 
 .tech-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
 .tag {
-  font-size: 0.75rem; padding: 4px 10px; background: color-mix(in srgb, var(--accent), transparent 95%);
+  font-size: 0.75rem; padding: 4px 10px; background: rgba(0, 255, 133, 0.05);
   border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); font-family: var(--font-mono);
 }
 .card-link { font-size: 0.9rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 
 /* --- ABOUT GRID --- */
-.about-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
-@media(min-width: 768px) { .about-grid { grid-template-columns: 1.2fr 0.8fr; } }
+.about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
 .about-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px; }
 
 /* --- CONTACT --- */
@@ -143,8 +126,8 @@ ul { list-style: none; }
 
 .copy-email-btn {
   background: var(--bg-card); border: 1px dashed var(--border); color: var(--text);
-  padding: 15px 40px; font-size: clamp(1rem, 5vw, 1.8rem); font-weight: 700; cursor: pointer;
-  border-radius: 8px; transition: 0.3s; font-family: var(--font-mono); margin-bottom: 10px;
+  padding: 15px 40px; font-size: clamp(1.2rem, 5vw, 1.8rem); font-weight: 700; cursor: pointer;
+  border-radius: 8px; transition: 0.3s; font-family: var(--font-mono); margin-bottom: 10px; width: 100%; max-width: 400px;
 }
 .copy-email-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); }
 .copy-email-btn:active { transform: scale(0.98); }
@@ -162,31 +145,49 @@ footer { padding: 40px 0; text-align: center; color: var(--text-muted); font-siz
 .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s var(--easing); }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* --- 📱 MOBILE RESPONSIVENESS --- */
+/* =========================================
+   📱 MOBILE OPTIMIZATION (THE FIX)
+   ========================================= */
 @media (max-width: 768px) {
-  .hero-name { font-size: 3rem; }
-  .stats-row { flex-wrap: wrap; gap: 30px; }
 
-  /* Navbar Mobile Mode */
-  .hamburger { display: block; }
+  /* 1. Navbar Mobile Mode */
+  .hamburger { display: block; z-index: 1001; }
 
   .nav-links {
-    position: absolute;
-    top: 80px; left: 0; width: 100%;
-    background: var(--bg);
+    position: fixed; /* Cover entire screen */
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: rgba(16, 18, 22, 0.98); /* Solid dark bg */
+    backdrop-filter: blur(15px);
     flex-direction: column;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    gap: 20px;
+    justify-content: center; /* Center items vertically */
     align-items: center;
+    gap: 40px;
 
     /* Hidden state */
-    opacity: 0; transform: translateY(-10px); pointer-events: none;
-    transition: 0.3s var(--easing);
+    opacity: 0; pointer-events: none;
+    transition: 0.3s ease-in-out;
   }
 
-  /* Visible state (toggled by JS) */
   .nav-links.active {
-    opacity: 1; transform: translateY(0); pointer-events: all;
+    opacity: 1; pointer-events: all;
   }
+
+  .nav-links a { font-size: 1.5rem; /* Bigger text for thumbs */ font-weight: 700; }
+
+  /* 2. Hero Adjustments */
+  .hero { padding-top: 100px; text-align: left; }
+  .hero-name { font-size: 3.2rem; }
+  .stats-row { flex-wrap: wrap; gap: 30px; }
+
+  /* 3. Grid Fixes */
+  .grid { grid-template-columns: 1fr; /* Force 1 column */ }
+  .about-grid { grid-template-columns: 1fr; }
+
+  /* 4. Padding Fixes */
+  .container { padding: 0 20px; }
+  .section { padding: 80px 0; }
+
+  /* 5. Button Stacking */
+  .btn-group { flex-direction: column; width: 100%; }
+  .btn { width: 100%; justify-content: center; }
 }
