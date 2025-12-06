@@ -3,113 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Creative Developer</title>
+  <title>Portfolio | Professional Developer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
 
-  <div class="background-mesh"></div>
-
-  <nav class="navbar glass">
-    <div class="logo">Dev<span class="accent">.IO</span></div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="setup.html" class="nav-btn">My Setup <i class="fas fa-arrow-right"></i></a></li>
-    </ul>
-    <div class="hamburger"><i class="fas fa-bars"></i></div>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">Dev<span class="dot">.</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#toolkit">Toolkit</a></li>
+        <li><a href="#contact" class="btn-nav">Contact</a></li>
+      </ul>
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </div>
   </nav>
 
   <section id="home" class="hero">
+    <div class="container hero-content">
+      <span class="badge">Full Stack Developer</span>
+      <h1>Building digital products with <br> <span class="text-primary">precision and purpose.</span></h1>
+      <p class="hero-text">I transform complex problems into elegant, scalable solutions. Specialized in React, Node.js, and Cloud Architecture.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn primary">View My Work</a>
+        <a href="#contact" class="btn secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section bg-light">
     <div class="container">
-      <div class="hero-content">
-        <span class="pill">Available for hire</span>
-        <h1 class="glitch-text" data-text="Design. Build. Ship.">Design. Build. Ship.</h1>
-        <p class="description">I craft high-performance digital experiences with a focus on motion and usability.</p>
-        
-        <div class="cta-group">
-          <a href="#work" class="btn primary">View Projects</a>
-          <a href="setup.html" class="btn secondary">See My Gear</a>
+      <div class="split-layout">
+        <div class="about-text">
+          <h2 class="section-title">About Me</h2>
+          <p>I am a developer driven by structure and efficiency. With a background in computer science and a passion for clean code, I build applications that are not only functional but maintainable.</p>
+          <p>When I'm not coding, I'm optimizing my development environment or contributing to open-source projects.</p>
+
+          <div class="stats-grid">
+            <div class="stat">
+              <span class="number">5+</span>
+              <span class="label">Years Exp.</span>
+            </div>
+            <div class="stat">
+              <span class="number">20+</span>
+              <span class="label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="number">100%</span>
+              <span class="label">Commitment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-wrapper">
+          <h3>Technical Expertise</h3>
+
+          <div class="skill-category">
+            <h4>Frontend</h4>
+            <div class="tags">
+              <span>React</span><span>TypeScript</span><span>Tailwind</span><span>HTML/CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Backend</h4>
+            <div class="tags">
+              <span>Node.js</span><span>Python</span><span>PostgreSQL</span><span>Azure Functions</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Tools & DevOps</h4>
+            <div class="tags">
+              <span>Docker</span><span>Git</span><span>Linux</span><span>CI/CD</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee-container">
-    <div class="marquee-content">
-      <span><i class="fab fa-react"></i> React</span>
-      <span><i class="fab fa-js"></i> JavaScript</span>
-      <span><i class="fas fa-cube"></i> Three.js</span>
-      <span><i class="fab fa-python"></i> Python</span>
-      <span><i class="fab fa-docker"></i> Docker</span>
-      <span><i class="fab fa-aws"></i> AWS</span>
-      <span><i class="fab fa-figma"></i> Figma</span>
-      <span><i class="fab fa-react"></i> React</span>
-      <span><i class="fab fa-js"></i> JavaScript</span>
-      <span><i class="fas fa-cube"></i> Three.js</span>
-      <span><i class="fab fa-python"></i> Python</span>
-      <span><i class="fab fa-docker"></i> Docker</span>
-      <span><i class="fab fa-aws"></i> AWS</span>
-      <span><i class="fab fa-figma"></i> Figma</span>
-    </div>
-  </div>
-
-  <section id="work" class="section">
+  <section id="experience" class="section">
     <div class="container">
-      <div class="section-header">
-        <h2>Selected Work</h2>
-        <p>A collection of my best projects.</p>
+      <h2 class="section-title center">My Journey</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">2023 - Present</div>
+          <div class="timeline-content">
+            <h3>Senior Frontend Engineer</h3>
+            <span class="company">Tech Solutions Inc.</span>
+            <p>Leading the migration of legacy codebases to modern React architectures. Improved site performance by 40%.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2021 - 2023</div>
+          <div class="timeline-content">
+            <h3>Full Stack Developer</h3>
+            <span class="company">Creative Agency</span>
+            <p>Developed custom e-commerce solutions and client portfolios using Node.js and MongoDB.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2018 - 2021</div>
+          <div class="timeline-content">
+            <h3>B.S. Computer Science</h3>
+            <span class="company">University of Technology</span>
+            <p>Graduated with honors. Specialized in Algorithms and Data Structures.</p>
+          </div>
+        </div>
+
       </div>
-      
+    </div>
+  </section>
+
+  <section id="projects" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title center">Selected Projects</h2>
       <div class="projects-grid">
-        <div class="project-card glass-card" data-tilt>
-          <div class="card-image gradient-1"></div>
-          <div class="card-info">
-            <h3>Nebula Dashboard</h3>
-            <p>Real-time analytics platform with WebGL data visualization.</p>
-            <div class="tags">
-              <span>React</span><span>D3.js</span>
+
+        <div class="project-card">
+          <div class="card-header">
+            <i class="fas fa-folder folder-icon"></i>
+            <div class="card-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
             </div>
+          </div>
+          <h3>Cloud Dashboard</h3>
+          <p>A comprehensive analytics dashboard for monitoring cloud resources in real-time.</p>
+          <div class="tech-stack">
+            <span>React</span><span>Chart.js</span><span>AWS</span>
           </div>
         </div>
 
-        <div class="project-card glass-card" data-tilt>
-          <div class="card-image gradient-2"></div>
-          <div class="card-info">
-            <h3>Aura UI Kit</h3>
-            <p>A lightweight, accessible component library for modern apps.</p>
-            <div class="tags">
-              <span>TypeScript</span><span>SCSS</span>
+        <div class="project-card">
+          <div class="card-header">
+            <i class="fas fa-folder folder-icon"></i>
+            <div class="card-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
             </div>
+          </div>
+          <h3>SecureChat App</h3>
+          <p>End-to-end encrypted messaging application focused on user privacy.</p>
+          <div class="tech-stack">
+            <span>Socket.io</span><span>Node.js</span><span>Redis</span>
           </div>
         </div>
 
-        <div class="project-card glass-card" data-tilt>
-          <div class="card-image gradient-3"></div>
-          <div class="card-info">
-            <h3>Crypto Sentry</h3>
-            <p>Automated trading bot with secure biometric authentication.</p>
-            <div class="tags">
-              <span>Python</span><span>Docker</span>
+        <div class="project-card">
+          <div class="card-header">
+            <i class="fas fa-folder folder-icon"></i>
+            <div class="card-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
+          <h3>E-Commerce API</h3>
+          <p>Scalable RESTful API designed for high-traffic online stores.</p>
+          <div class="tech-stack">
+            <span>Python</span><span>Django</span><span>PostgreSQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="toolkit" class="section">
+    <div class="container">
+      <h2 class="section-title center">My Toolkit</h2>
+      <p class="section-subtitle center">The tools and software I use to maintain productivity.</p>
+
+      <div class="toolkit-grid">
+        <div class="toolkit-category">
+          <h3><i class="fas fa-laptop"></i> Hardware</h3>
+          <ul>
+            <li><strong>Computer:</strong> MacBook Pro M1 / Custom PC</li>
+            <li><strong>Monitor:</strong> LG UltraFine 4K</li>
+            <li><strong>Keyboard:</strong> Keychron K2 (Brown Switches)</li>
+            <li><strong>Mouse:</strong> Logitech MX Master 3</li>
+          </ul>
+        </div>
+
+        <div class="toolkit-category">
+          <h3><i class="fas fa-terminal"></i> Software</h3>
+          <ul>
+            <li><strong>Editor:</strong> VS Code (Dracula Theme)</li>
+            <li><strong>Terminal:</strong> PowerShell / Zsh with Oh-My-Posh</li>
+            <li><strong>Browser:</strong> Firefox Developer Edition</li>
+            <li><strong>Notes:</strong> Obsidian / Notion</li>
+          </ul>
+        </div>
+
+        <div class="toolkit-category">
+          <h3><i class="fas fa-cloud"></i> Services</h3>
+          <ul>
+            <li><strong>Hosting:</strong> Azure Static Web Apps</li>
+            <li><strong>Security:</strong> Proton Mail & VPN</li>
+            <li><strong>Password:</strong> Bitwarden</li>
+            <li><strong>Version Control:</strong> GitHub</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="glass-footer">
-    <div class="container footer-content">
-      <p>&copy; 2024 Built with <i class="fas fa-heart accent"></i></p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-twitter"></i></a>
+  <section id="contact" class="section bg-dark text-white">
+    <div class="container center-text">
+      <h2 class="section-title white">Let's Work Together</h2>
+      <p class="contact-desc">I'm currently available for freelance work or full-time opportunities.</p>
+      <a href="mailto:your.email@example.com" class="btn primary-white">Say Hello</a>
+
+      <div class="social-links">
         <a href="#"><i class="fab fa-github"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 [Your Name]. All rights reserved.</p>
     </div>
   </footer>
 
