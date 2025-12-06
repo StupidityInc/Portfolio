@@ -1,68 +1,61 @@
-// IDE File Switching Logic
-function openFile(fileName) {
-    // 1. Remove 'active' from all sidebar items
-    document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
-    // 2. Hide all content and tabs
-    document.querySelectorAll('.code-view').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.tab').forEach(el => {
-        el.style.display = 'none';
-        el.classList.remove('active');
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // --- Custom Cursor Logic ---
+  const cursorDot = document.querySelector(".cursor-dot");
+  const cursorOutline = document.querySelector(".cursor-outline");
+
+  window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Dot follows immediately
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Outline follows with slight delay (animation in CSS)
+    cursorOutline.animate({
+      left: `${posX}px`,
+      top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+  });
+
+  // Hover Effect for Cursor
+  const interactiveElements = document.querySelectorAll("a, button, .glass-card");
+  interactiveElements.forEach(el => {
+    el.addEventListener("mouseenter", () => document.body.classList.add("hovering"));
+    el.addEventListener("mouseleave", () => document.body.classList.remove("hovering"));
+  });
+
+  // --- 3D Tilt Effect for Cards ---
+  const cards = document.querySelectorAll("[data-tilt]");
+  
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
     });
 
-    // 3. Activate selected
-    const sidebarItem = document.querySelector(`.file-item[onclick="openFile('${fileName}')"]`);
-    if(sidebarItem) sidebarItem.classList.add('active');
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+    });
+  });
 
-    const contentDiv = document.getElementById(`content-${fileName}`);
-    if(contentDiv) contentDiv.style.display = 'block';
-
-    const tabDiv = document.getElementById(`tab-${fileName}`);
-    if(tabDiv) {
-        tabDiv.style.display = 'flex';
-        tabDiv.classList.add('active');
-    }
-}
-
-// Typing Effect
-document.addEventListener("DOMContentLoaded", () => {
-    const textElement = document.querySelector(".text-typing");
-    if(textElement) {
-        const words = textElement.getAttribute("data-text").split(",");
-        let wordIndex = 0, charIndex = 0, isDeleting = false;
-        function type() {
-            const currentWord = words[wordIndex];
-            textElement.textContent = currentWord.substring(0, charIndex + (isDeleting ? -1 : 1));
-            charIndex += isDeleting ? -1 : 1;
-            if (!isDeleting && charIndex === currentWord.length) { isDeleting = true; setTimeout(type, 2000); }
-            else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; setTimeout(type, 500); }
-            else setTimeout(type, isDeleting ? 100 : 200);
-        }
-        type();
-    }
+  // --- Smooth Scroll ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
 });
-
-// Matrix Background Effect
-const canvas = document.getElementById('matrixCanvas');
-if (canvas) {
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const chars = '01';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(11, 12, 16, 0.05)'; // Fade trail
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#0f0'; // Green text
-        ctx.font = fontSize + 'px monospace';
-        for (let i = 0; i < drops.length; i++) {
-            const text = chars.charAt(Math.floor(Math.random() * chars.length));
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-            drops[i]++;
-        }
-    }
-    setInterval(drawMatrix, 50);
-}
