@@ -3,122 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Creative Developer</title>
+  <title>My Setup | /uses</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="setup-body">
 
   <nav class="navbar">
-    <div class="logo">&lt;Dev/&gt;</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="setup.html" class="special-link"><i class="fas fa-cog"></i> My Setup</a></li>
-      <li><a href="#contact" class="btn-nav">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-      <i class="fas fa-bars"></i>
-    </div>
+    <div class="logo"><a href="index.html">&lt;Back/&gt;</a></div>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <p class="subtitle">Welcome to my world</p>
-        <h1>I am <span class="highlight text-typing" data-text="[Your Name],a Developer,a Creator"></span><span class="cursor">|</span></h1>
-        <p class="description">Building digital experiences that blend design and technology.</p>
-        <div class="hero-btns">
-          <a href="#projects" class="btn primary">View Work</a>
-          <a href="setup.html" class="btn secondary">See My Config <i class="fas fa-arrow-right"></i></a>
+  <div class="container setup-container">
+    <div class="ide-window">
+      
+      <div class="ide-sidebar">
+        <div class="sidebar-header">EXPLORER</div>
+        <div class="file-item active" onclick="openFile('settings')">
+          <i class="fas fa-cog file-icon json-icon"></i> settings.json
+        </div>
+        <div class="file-item" onclick="openFile('tools')">
+          <i class="fab fa-markdown file-icon md-icon"></i> my-tools.md
+        </div>
+        <div class="file-item" onclick="openFile('scripts')">
+          <i class="fas fa-terminal file-icon sh-icon"></i> win-setup.sh
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I don't just write code; I solve problems. With a background in [Your Field], I specialize in creating efficient, scalable, and visually stunning applications.</p>
-          <p>When I'm not coding, I'm tweaking my <a href="setup.html">development setup</a> or exploring new tech stacks.</p>
+      <div class="ide-content">
+        
+        <div class="ide-tabs">
+          <div class="tab active" id="tab-settings">settings.json</div>
+          <div class="tab" id="tab-tools" style="display:none;">my-tools.md</div>
+          <div class="tab" id="tab-scripts" style="display:none;">win-setup.sh</div>
         </div>
-        <div class="skills-wrapper">
-          <h3>Tech Stack</h3>
-          <div class="skill-tags">
-            <span>JavaScript</span>
-            <span>React</span>
-            <span>Node.js</span>
-            <span>LyX / LaTeX</span>
-            <span>Azure</span>
-            <span>Git</span>
+
+        <div id="content-settings" class="code-view">
+          <div class="line-numbers">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+          </div>
+          <div class="code-text">
+            <span class="bracket">{</span><br>
+            &nbsp;&nbsp;<span class="key">"editor.theme"</span>: <span class="string">"Dracula"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"terminal.integrated.shell.windows"</span>: <span class="string">"PowerShell Core"</span>,<br>
+            &nbsp;&nbsp;<span class="comment">// My Daily Drivers</span><br>
+            &nbsp;&nbsp;<span class="key">"hardware.laptop"</span>: <span class="string">"MacBook Pro M1"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"hardware.keyboard"</span>: <span class="string">"Keychron K2"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"hardware.mouse"</span>: <span class="string">"Logitech MX Master 3"</span><br>
+            <span class="bracket">}</span>
           </div>
         </div>
+
+        <div id="content-tools" class="code-view" style="display:none;">
+          <div class="markdown-view">
+            <h1># My Software Arsenal</h1>
+            <p>Here is a list of the tools I use to stay productive.</p>
+            
+            <br>
+            <h2>## Privacy & Security</h2>
+            <ul>
+              <li><strong>Proton Mail:</strong> Encrypted email for safety.</li>
+              <li><strong>Proton VPN:</strong> Essential for public Wi-Fi.</li>
+              <li><strong>Bitwarden:</strong> Open source password management.</li>
+            </ul>
+
+            <br>
+            <h2>## Development</h2>
+            <ul>
+              <li><strong>JetBrains Toolbox:</strong> The best way to manage IntelliJ, WebStorm, and PyCharm.</li>
+              <li><strong>VS Code:</strong> For quick edits and web dev.</li>
+              <li><strong>Docker Desktop:</strong> Containerization made easy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="content-scripts" class="code-view" style="display:none;">
+          <div class="code-text">
+            <span class="comment"># Windows Setup / Debloat Script</span><br>
+            <span class="keyword">echo</span> <span class="string">"Starting system optimization..."</span><br>
+            <br>
+            <span class="comment"># 1. Install Package Manager (Winget/Scoop)</span><br>
+            <span class="function">iwr</span> -useb get.scoop.sh | <span class="function">iex</span><br>
+            <br>
+            <span class="comment"># 2. Install Essentials</span><br>
+            <span class="function">scoop</span> install git nodejs-lts python<br>
+            <br>
+            <span class="comment"># 3. Activation & Tools (Placeholder)</span><br>
+            <span class="keyword">echo</span> <span class="string">"Running custom activation scripts..."</span><br>
+            <span class="comment"># Add your preferred scripts here (e.g. MAS references)</span><br>
+            <span class="function">./activate-all.ps1</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
-
-  <section id="projects" class="section bg-darker">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" data-tilt>
-          <div class="card-content">
-            <div class="card-icon"><i class="fas fa-code-branch"></i></div>
-            <h3>Project Alpha</h3>
-            <p>A high-performance web app optimized for speed and accessibility.</p>
-            <div class="card-links">
-              <a href="#"><i class="fab fa-github"></i> Code</a>
-              <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card" data-tilt>
-          <div class="card-content">
-            <div class="card-icon"><i class="fas fa-layer-group"></i></div>
-            <h3>Project Beta</h3>
-            <p>Interactive dashboard visualizing complex datasets in real-time.</p>
-            <div class="card-links">
-              <a href="#"><i class="fab fa-github"></i> Code</a>
-              <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card" data-tilt>
-          <div class="card-content">
-            <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
-            <h3>Project Gamma</h3>
-            <p>Responsive mobile-first application with seamless animations.</p>
-            <div class="card-links">
-              <a href="#"><i class="fab fa-github"></i> Code</a>
-              <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <div class="contact-wrapper">
-        <p>Have a project in mind or just want to say hi?</p>
-        <a href="mailto:your.email@example.com" class="btn primary big-btn">your.email@example.com</a>
-        <div class="socials">
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2024 Built with <i class="fas fa-heart"></i> and Code.</p>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
