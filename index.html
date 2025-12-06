@@ -3,100 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Setup | /uses</title>
+  <title>Portfolio | Creative Developer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="setup-body">
+<body>
+  
+  <canvas id="matrixCanvas"></canvas>
 
   <nav class="navbar">
-    <div class="logo"><a href="index.html">&lt;Back/&gt;</a></div>
+    <div class="logo">&lt;Dev/&gt;</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="setup.html" class="special-link"><i class="fas fa-terminal"></i> /uses</a></li>
+      <li><a href="#contact" class="btn-nav">Contact</a></li>
+    </ul>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
   </nav>
 
-  <div class="container setup-container">
-    <div class="ide-window">
-      
-      <div class="ide-sidebar">
-        <div class="sidebar-header">EXPLORER</div>
-        <div class="file-item active" onclick="openFile('settings')">
-          <i class="fas fa-cog file-icon json-icon"></i> settings.json
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="subtitle">Welcome to the grid</p>
+        <h1>I create <span class="text-typing" data-text="Systems.,Interfaces.,Solutions."></span><span class="cursor">|</span></h1>
+        <p class="description">Full-stack developer with a focus on automation and design.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="setup.html" class="btn secondary">My Config</a>
         </div>
-        <div class="file-item" onclick="openFile('tools')">
-          <i class="fab fa-markdown file-icon md-icon"></i> my-tools.md
-        </div>
-        <div class="file-item" onclick="openFile('scripts')">
-          <i class="fas fa-terminal file-icon sh-icon"></i> win-setup.sh
-        </div>
-      </div>
-
-      <div class="ide-content">
-        
-        <div class="ide-tabs">
-          <div class="tab active" id="tab-settings">settings.json</div>
-          <div class="tab" id="tab-tools" style="display:none;">my-tools.md</div>
-          <div class="tab" id="tab-scripts" style="display:none;">win-setup.sh</div>
-        </div>
-
-        <div id="content-settings" class="code-view">
-          <div class="line-numbers">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
-          </div>
-          <div class="code-text">
-            <span class="bracket">{</span><br>
-            &nbsp;&nbsp;<span class="key">"editor.theme"</span>: <span class="string">"Dracula"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"terminal.integrated.shell.windows"</span>: <span class="string">"PowerShell Core"</span>,<br>
-            &nbsp;&nbsp;<span class="comment">// My Daily Drivers</span><br>
-            &nbsp;&nbsp;<span class="key">"hardware.laptop"</span>: <span class="string">"MacBook Pro M1"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"hardware.keyboard"</span>: <span class="string">"Keychron K2"</span>,<br>
-            &nbsp;&nbsp;<span class="key">"hardware.mouse"</span>: <span class="string">"Logitech MX Master 3"</span><br>
-            <span class="bracket">}</span>
-          </div>
-        </div>
-
-        <div id="content-tools" class="code-view" style="display:none;">
-          <div class="markdown-view">
-            <h1># My Software Arsenal</h1>
-            <p>Here is a list of the tools I use to stay productive.</p>
-            
-            <br>
-            <h2>## Privacy & Security</h2>
-            <ul>
-              <li><strong>Proton Mail:</strong> Encrypted email for safety.</li>
-              <li><strong>Proton VPN:</strong> Essential for public Wi-Fi.</li>
-              <li><strong>Bitwarden:</strong> Open source password management.</li>
-            </ul>
-
-            <br>
-            <h2>## Development</h2>
-            <ul>
-              <li><strong>JetBrains Toolbox:</strong> The best way to manage IntelliJ, WebStorm, and PyCharm.</li>
-              <li><strong>VS Code:</strong> For quick edits and web dev.</li>
-              <li><strong>Docker Desktop:</strong> Containerization made easy.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div id="content-scripts" class="code-view" style="display:none;">
-          <div class="code-text">
-            <span class="comment"># Windows Setup / Debloat Script</span><br>
-            <span class="keyword">echo</span> <span class="string">"Starting system optimization..."</span><br>
-            <br>
-            <span class="comment"># 1. Install Package Manager (Winget/Scoop)</span><br>
-            <span class="function">iwr</span> -useb get.scoop.sh | <span class="function">iex</span><br>
-            <br>
-            <span class="comment"># 2. Install Essentials</span><br>
-            <span class="function">scoop</span> install git nodejs-lts python<br>
-            <br>
-            <span class="comment"># 3. Activation & Tools (Placeholder)</span><br>
-            <span class="keyword">echo</span> <span class="string">"Running custom activation scripts..."</span><br>
-            <span class="comment"># Add your preferred scripts here (e.g. MAS references)</span><br>
-            <span class="function">./activate-all.ps1</span>
-          </div>
-        </div>
-
       </div>
     </div>
+  </section>
+
+  <div class="tech-marquee">
+    <div class="marquee-content">
+      <span><i class="fab fa-js"></i> JavaScript</span>
+      <span><i class="fab fa-react"></i> React</span>
+      <span><i class="fab fa-node"></i> Node.js</span>
+      <span><i class="fab fa-python"></i> Python</span>
+      <span><i class="fab fa-docker"></i> Docker</span>
+      <span><i class="fab fa-git-alt"></i> Git</span>
+      <span><i class="fab fa-linux"></i> Linux</span>
+      <span><i class="fab fa-windows"></i> Windows</span>
+      <span><i class="fab fa-js"></i> JavaScript</span>
+      <span><i class="fab fa-react"></i> React</span>
+      <span><i class="fab fa-node"></i> Node.js</span>
+      <span><i class="fab fa-python"></i> Python</span>
+      <span><i class="fab fa-docker"></i> Docker</span>
+      <span><i class="fab fa-git-alt"></i> Git</span>
+    </div>
   </div>
+
+  <section id="projects" class="section bg-darker">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" data-tilt>
+          <div class="card-icon"><i class="fas fa-satellite"></i></div>
+          <h3>Project One</h3>
+          <p>Automated deployment pipeline for static web apps.</p>
+        </div>
+        <div class="project-card" data-tilt>
+          <div class="card-icon"><i class="fas fa-fingerprint"></i></div>
+          <h3>Project Two</h3>
+          <p>Secure authentication system using biometric data.</p>
+        </div>
+        <div class="project-card" data-tilt>
+          <div class="card-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Project Three</h3>
+          <p>High-frequency trading bot optimized for low latency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Initialize Handshake</h2>
+      <div class="contact-wrapper">
+        <a href="mailto:email@example.com" class="btn primary big-btn">email@example.com</a>
+      </div>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
