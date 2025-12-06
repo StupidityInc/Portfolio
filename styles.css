@@ -1,211 +1,149 @@
-/* --- Variables (Premium Dark Theme) --- */
+/* --- JetBrains / PyCharm 2025 Theme Variables --- */
 :root {
-  --bg-main: #050505;
-  --bg-secondary: #0a0a0a;
-  --text-main: #ededed;
-  --text-muted: #a1a1aa;
+  /* The core IDE colors */
+  --ide-bg: #1e1f22;        /* Main editor background */
+  --ide-panel: #2b2d30;     /* Sidebars/Panels */
+  --ide-border: #43454a;    /* Subtle borders */
+  --ide-text-main: #dfe1e5; /* Main text */
+  --ide-text-muted: #8c8c8c;/* Comments/Muted text */
 
-  --primary: #ffffff; /* Stark white for high contrast */
-  --accent: #3b82f6; /* Subtle tech blue for small highlights */
+  /* Accents */
+  --jb-blue: #3574f0;       /* Primary Action Blue */
+  --jb-blue-hover: #366ac4;
+  --jb-purple: #9d50bb;     /* Keyword Purple */
+  --jb-green: #57a657;      /* String Green */
 
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.2);
-
-  --glass-bg: rgba(20, 20, 20, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.05);
-
-  --card-bg: #0f0f0f;
-
-  --font-main: 'Plus Jakarta Sans', sans-serif;
-  --easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-code: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* --- Base --- */
+/* --- Reset & Base --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-main);
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  font-family: var(--font-ui);
+  background-color: var(--ide-bg); /* FORCED DARK BACKGROUND */
+  color: var(--ide-text-main);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Mobile Cursor Reset */
-@media (max-width: 768px) {
-  body { cursor: auto; }
-}
-
-a, button { cursor: none; }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
+a { text-decoration: none; color: inherit; transition: 0.2s; }
 ul { list-style: none; }
 
-h1, h2, h3 { font-weight: 700; letter-spacing: -0.04em; color: #fff; }
+/* --- Typography --- */
+h1, h2, h3 { font-weight: 600; color: #ffffff; letter-spacing: -0.02em; }
+h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px; }
+h2 { font-size: 2rem; margin-bottom: 16px; }
+p { color: var(--ide-text-muted); font-size: 1.05rem; }
 
-/* --- Custom Cursor --- */
-.cursor-dot {
-  width: 6px; height: 6px; background-color: #fff; border-radius: 50%;
-  position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); z-index: 9999; pointer-events: none;
-  display: none;
-}
-.cursor-circle {
-  width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%;
-  position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none;
-  transition: width 0.3s var(--easing), height 0.3s var(--easing), border-color 0.3s;
-  mix-blend-mode: difference;
-  display: none;
-}
+/* --- PyCharm-Style Buttons --- */
+.btn-container { display: flex; gap: 12px; margin-top: 30px; }
 
-@media (min-width: 768px) { .cursor-dot, .cursor-circle { display: block; } }
-
-body.hovering .cursor-circle {
-  width: 60px; height: 60px; background: #fff; border-color: transparent; opacity: 1;
-}
-
-/* --- Navbar --- */
-.navbar {
-  position: fixed; top: 0; width: 100%; height: 80px;
-  background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border); z-index: 100;
-  display: flex; align-items: center;
-}
-.nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.logo { font-size: 1.25rem; font-weight: 700; color: #fff; }
-.nav-links { display: flex; gap: 40px; }
-.nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
-.nav-links a:hover { color: #fff; }
-
-/* --- Beautiful Buttons ($500 Polish) --- */
 .btn {
-  display: inline-flex; align-items: center; padding: 14px 32px;
-  border-radius: 8px; font-weight: 600; font-size: 0.95rem;
-  transition: all 0.4s var(--easing); position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 24px;
+  font-size: 0.9rem; font-weight: 500;
+  border-radius: 4px; /* Distinctive low border radius */
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
-/* Primary Button: White Glow */
+/* Primary: Solid Blue (Like 'Commit' or 'Run') */
 .btn.primary {
-  background: #fff; color: #000; border: 1px solid #fff;
+  background-color: var(--jb-blue);
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 .btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  background-color: var(--jb-blue-hover);
+  transform: translateY(-1px);
 }
 
-/* Secondary Button: Glass */
+/* Secondary: Panel Grey (Like 'Cancel' or 'Settings') */
 .btn.secondary {
-  background: rgba(255,255,255,0.05); color: #fff;
-  border: 1px solid var(--border);
+  background-color: var(--ide-panel);
+  color: var(--ide-text-main);
+  border: 1px solid var(--ide-border);
 }
 .btn.secondary:hover {
-  background: rgba(255,255,255,0.1); border-color: #fff;
+  background-color: #393b40;
+  border-color: #5c5f66;
 }
+
+/* --- Layout --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+.section { padding: 100px 0; border-bottom: 1px solid var(--ide-border); }
+.section:last-child { border-bottom: none; }
+
+/* --- Navbar (The Top Toolbar) --- */
+.navbar {
+  position: fixed; top: 0; width: 100%; height: 60px;
+  background: var(--ide-panel);
+  border-bottom: 1px solid var(--ide-border);
+  z-index: 1000; display: flex; align-items: center;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo { font-family: var(--font-code); font-weight: 700; color: #fff; font-size: 1.1rem; }
+.logo span { color: var(--jb-blue); }
+
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 0.85rem; color: var(--ide-text-muted); font-weight: 500; }
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; border-bottom: 2px solid var(--jb-blue); padding-bottom: 18px; }
 
 /* --- Hero Section --- */
-.hero { padding: 200px 0 140px; position: relative; }
-.hero h1 {
-  font-size: 5rem; line-height: 1.1; margin-bottom: 24px;
-  background: linear-gradient(to right, #fff 40%, #71717a 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-text {
-  font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px;
-}
-/* Subtle background gradient mesh */
-.hero::before {
-  content: ''; position: absolute; top: -100px; right: 0; width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-  filter: blur(80px); z-index: -1;
-}
+.hero { padding-top: 180px; min-height: 80vh; }
+.code-keyword { color: var(--jb-blue); }
+.code-string { color: var(--jb-green); }
+.code-comment { color: var(--ide-text-muted); font-family: var(--font-code); font-size: 0.9rem; display: block; margin-bottom: 10px; }
 
-/* --- Featured Work (The Money Maker) --- */
-.section-header { margin-bottom: 60px; }
-.section-title { font-size: 2.5rem; margin-bottom: 10px; }
-.section-subtitle { color: var(--text-muted); }
-
-.project-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
-}
+/* --- Project Cards (IDE Panels) --- */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 40px; }
 
 .project-card {
-  background: var(--card-bg); border: 1px solid var(--border);
-  border-radius: 16px; overflow: hidden; transition: 0.4s var(--easing);
-  /* 3D Transform Prep */
-  transform-style: preserve-3d; transform: perspective(1000px);
+  background: var(--ide-panel);
+  border: 1px solid var(--ide-border);
+  border-radius: 6px;
+  padding: 24px;
+  transition: 0.2s;
 }
 .project-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-  transform: translateY(-5px);
+  border-color: var(--jb-blue);
+  background: #313438;
 }
 
-.project-image {
-  width: 100%; height: 220px; background: #1a1a1a;
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid var(--border);
-}
-/* Placeholder for images - replace with <img> tags in real usage */
-.project-placeholder { font-size: 3rem; color: #333; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+.folder-icon { color: var(--jb-blue); font-size: 1.2rem; }
+.card-title { font-size: 1.1rem; color: #fff; font-weight: 600; margin: 0; }
+.card-desc { font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5; }
 
-.project-content { padding: 30px; }
-.project-content h3 { font-size: 1.5rem; margin-bottom: 10px; }
-.project-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
-
-.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
-.tag {
-  font-size: 0.75rem; color: #fff; padding: 6px 14px;
-  border-radius: 50px; background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+.tech-stack { display: flex; gap: 8px; flex-wrap: wrap; }
+.tech-tag {
+  font-family: var(--font-code); font-size: 0.75rem;
+  background: rgba(255,255,255,0.05); color: var(--ide-text-muted);
+  padding: 4px 8px; border-radius: 4px;
 }
 
-.project-link {
-  font-size: 0.9rem; font-weight: 600; color: #fff; display: inline-flex; align-items: center; gap: 8px;
+/* --- Timeline (Log View) --- */
+.timeline { margin-top: 40px; border-left: 2px solid var(--ide-border); padding-left: 20px; }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot {
+  position: absolute; left: -27px; top: 5px; width: 12px; height: 12px;
+  background: var(--ide-bg); border: 2px solid var(--jb-purple); border-radius: 50%;
 }
-.project-link i { transition: transform 0.3s; }
-.project-link:hover i { transform: translateX(4px); }
+.timeline-role { font-weight: 600; color: #fff; font-size: 1rem; }
+.timeline-meta { font-family: var(--font-code); font-size: 0.8rem; color: var(--jb-blue); margin-bottom: 8px; display: block; }
 
-/* --- About & Skills (Clean & Minimal) --- */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; }
+/* --- Footer --- */
+footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--ide-border); font-size: 0.85rem; color: var(--ide-text-muted); }
 
-.skill-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-.skill-pill {
-  padding: 10px 20px; border: 1px solid var(--border); border-radius: 8px;
-  color: #fff; font-size: 0.9rem; transition: 0.3s;
-}
-.skill-pill:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
-
-/* --- Experience (Timeline) --- */
-.timeline { border-left: 2px solid var(--border); padding-left: 40px; margin-top: 20px; }
-.timeline-item { position: relative; margin-bottom: 50px; }
-.timeline-marker {
-  position: absolute; left: -49px; top: 4px; width: 16px; height: 16px;
-  background: var(--bg-main); border: 2px solid #fff; border-radius: 50%;
-}
-.timeline-item h3 { font-size: 1.25rem; margin-bottom: 5px; }
-.timeline-item .role { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; display: block; }
-.timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
-
-/* --- Contact & Footer --- */
-.cta-section { text-align: center; padding: 100px 0; border-top: 1px solid var(--border); }
-.cta-section h2 { font-size: 3rem; margin-bottom: 20px; }
-.socials { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
-.socials a { font-size: 1.5rem; color: var(--text-muted); transition: 0.3s; }
-.socials a:hover { color: #fff; transform: translateY(-3px); }
-
-footer { text-align: center; padding: 40px 0; color: #444; font-size: 0.85rem; }
-
-/* --- Utilities --- */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 100px 0; }
-
-/* Animations */
-.hidden-fade { opacity: 0; transform: translateY(30px); transition: 0.8s var(--easing); }
-.show-fade { opacity: 1; transform: translateY(0); }
-
+/* --- Mobile --- */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 3rem; }
-  .about-grid, .project-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.5rem; }
   .nav-links { display: none; }
 }
