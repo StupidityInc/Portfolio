@@ -1,350 +1,93 @@
-/* Global Reset & Fonts */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Setup | Configuration</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="setup-body">
 
-html {
-  scroll-behavior: smooth;
-}
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">&lt;Back/&gt;</a></div>
+  </nav>
 
-body {
-  color: #333;
-  line-height: 1.6;
-}
+  <div class="container setup-container">
+    
+    <div class="ide-window">
+      <div class="ide-header">
+        <div class="dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="title">user_settings.json — Visual Studio Code</div>
+      </div>
 
-/* Variables */
-:root {
-  --primary-color: #0078d4; /* Azure Blue */
-  --secondary-color: #2b2b2b;
-  --bg-light: #f4f4f4;
-  --text-light: #fff;
-  --transition: all 0.3s ease;
-}
+      <div class="ide-body">
+        <div class="line-numbers">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+          <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+          <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+          <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+        </div>
+        
+        <div class="code-content">
+          <span class="bracket">{</span>
+          
+          <div class="indent">
+            <span class="key">"editor.name"</span>: <span class="string">"VS Code"</span>,
+          </div>
+          <div class="indent">
+            <span class="key">"editor.theme"</span>: <span class="string">"Dracula / Monokai Pro"</span>,
+          </div>
+          <div class="indent">
+            <span class="key">"editor.fontFamily"</span>: <span class="string">"Fira Code, Consolas"</span>,
+          </div>
 
-/* Utilities */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+          <div class="indent mt-1">
+            <span class="comment">// My LyX & LaTeX Configuration</span>
+          </div>
+          <div class="indent">
+            <span class="key">"lyx.preferences"</span>: <span class="bracket">{</span>
+            <div class="indent">
+               <span class="key">"document_class"</span>: <span class="string">"article (Standard Class)"</span>,
+            </div>
+            <div class="indent">
+               <span class="key">"math_macros"</span>: <span class="boolean">true</span>,
+            </div>
+            <div class="indent">
+               <span class="key">"shortcuts"</span>: <span class="array">[ "Ctrl+M", "Ctrl+Shift+L" ]</span>
+            </div>
+            <span class="bracket">}</span>,
+          </div>
 
-.btn {
-  display: inline-block;
-  padding: 10px 30px;
-  background: var(--primary-color);
-  color: var(--text-light);
-  border-radius: 5px;
-  text-decoration: none;
-  border: 2px solid var(--primary-color);
-  transition: var(--transition);
-  margin-top: 10px;
-}
+          <div class="indent mt-1">
+            <span class="comment">// Hardware Setup</span>
+          </div>
+          <div class="indent">
+            <span class="key">"hardware.daily_driver"</span>: <span class="string">"MacBook Pro M1 / Custom PC"</span>,
+          </div>
+          <div class="indent">
+            <span class="key">"hardware.keyboard"</span>: <span class="string">"Keychron K2 (Brown Switches)"</span>,
+          </div>
+          <div class="indent">
+            <span class="key">"hardware.mouse"</span>: <span class="string">"MX Master 3"</span>
+          </div>
 
-.btn:hover {
-  background: transparent;
-  color: var(--primary-color);
-}
+          <span class="bracket">}</span>
+          <div class="cursor-block"></div>
+        </div>
+      </div>
+    </div>
 
-.btn-outline {
-  background: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
+    <div class="setup-description">
+      <h2>Why this setup?</h2>
+      <p>I believe tools shape the way we think. My environment is optimized for speed, clarity, and minimal distractions. Whether I'm typesetting in LyX or coding in JS, every shortcut is muscle memory.</p>
+    </div>
 
-.btn-outline:hover {
-  background: var(--primary-color);
-  color: var(--text-light);
-}
+  </div>
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  z-index: 1000;
-  transition: var(--transition);
-}
-
-.navbar.scrolled {
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--secondary-color);
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--secondary-color);
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.nav-links a:hover {
-  color: var(--primary-color);
-}
-
-/* Hero Section */
-.hero {
-  height: 100vh;
-  background: linear-gradient(135deg, #1c1c1c, #2b2b2b);
-  color: var(--text-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero-content .greeting {
-  font-size: 1.2rem;
-  color: var(--primary-color);
-}
-
-.hero-content .name {
-  font-size: 4rem;
-  margin: 10px 0;
-}
-
-.hero-content .tagline {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  opacity: 0.8;
-}
-
-/* Sections */
-.section {
-  padding: 80px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: var(--secondary-color);
-}
-
-.bg-light {
-  background-color: var(--bg-light);
-}
-
-/* About */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.about-text {
-  max-width: 700px;
-}
-
-.skills {
-  margin-top: 30px;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.skill-tags span {
-  background: #e0e0e0;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-/* More About Me Section */
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
-
-.detail-card {
-    background: #fff;
-    padding: 25px;
-    border-left: 5px solid var(--primary-color);
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
-}
-
-.detail-card:hover {
-    transform: translateY(-5px);
-}
-
-.detail-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.detail-card h3 i {
-    margin-right: 10px;
-}
-
-.detail-card p {
-    color: #555;
-    font-size: 0.95rem;
-}
-
-
-/* Projects */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.project-card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border-top: 3px solid var(--primary-color);
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.project-card h3 {
-  margin-bottom: 10px;
-}
-
-.project-card p {
-  margin-bottom: 20px;
-  font-size: 0.95rem;
-  color: #666;
-}
-
-.card-links a {
-  text-decoration: none;
-  color: var(--secondary-color);
-  margin-right: 15px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.card-links a:hover {
-  color: var(--primary-color);
-}
-
-/* Contact & Footer */
-#contact {
-  text-align: center;
-}
-
-.contact-text {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 1.2rem;
-}
-
-/* New Contact Info Grid */
-.contact-info-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 30px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-}
-
-.contact-item .icon {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-right: 10px;
-}
-
-.contact-item a, .contact-item span {
-    text-decoration: none;
-    color: var(--secondary-color);
-}
-
-.contact-item a:hover {
-    text-decoration: underline;
-    color: var(--primary-color);
-}
-
-.social-icons {
-  margin-top: 30px;
-}
-
-.social-icons a {
-  color: var(--secondary-color);
-  font-size: 1.8rem;
-  margin: 0 15px;
-  transition: var(--transition);
-}
-
-.social-icons a:hover {
-  color: var(--primary-color);
-  transform: scale(1.1);
-}
-
-footer {
-  background: var(--secondary-color);
-  color: #888;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 20px;
-    flex-direction: column;
-  }
-  
-  .nav-links {
-    margin-top: 15px;
-  }
-  
-  .nav-links li {
-    margin: 0 10px;
-  }
-
-  .hero-content .name {
-    font-size: 2.5rem;
-  }
-
-  .contact-info-grid {
-      flex-direction: column;
-      gap: 20px;
-  }
-}
+</body>
+</html>
