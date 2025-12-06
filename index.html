@@ -3,128 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio_v25.0 [Read-Only]</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="logo">Portfolio.</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="container nav-container">
+      <div class="logo"><i class="fas fa-terminal" style="margin-right: 8px; color:#8c8c8c;"></i> user <span>/</span> portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#projects" class="active">Project Explorer</a></li>
+        <li><a href="#about">README.md</a></li>
+        <li><a href="#experience">git_log</a></li>
+      </ul>
+      <a href="#contact" class="btn primary" style="padding: 6px 16px; font-size: 0.8rem;">Run Build</a>
+    </div>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <span class="greeting">Hello, I'm</span>
-      <h1 class="name">[Your Name Here]</h1>
-      <p class="tagline">Creative Developer & Designer</p>
-      <a href="#projects" class="btn">View My Work</a>
+  <section class="hero container">
+    <span class="code-comment">// Welcome to my workspace</span>
+    <h1>
+      <span class="code-keyword">class</span> Developer <span class="code-keyword">extends</span> Human {<br>
+      &nbsp;&nbsp;builds: <span class="code-string">"Scalable Systems"</span>;<br>
+      }
+    </h1>
+    <p>Full-stack engineer specializing in high-performance architecture and modern UI patterns. Transforming coffee into clean code.</p>
+
+    <div class="btn-container">
+      <a href="#projects" class="btn primary"><i class="fas fa-play" style="font-size: 0.7rem; margin-right: 8px;"></i> View Projects</a>
+      <a href="#contact" class="btn secondary"><i class="fas fa-cog" style="font-size: 0.8rem; margin-right: 8px;"></i> Configuration</a>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            I am a passionate developer who loves building things for the web.
-            I focus on writing clean, elegant, and efficient code.
-            [EXAMPLE: I have 5 years of experience in JavaScript and specialize in building accessible, responsive interfaces.]
-          </p>
+  <section id="projects" class="section container">
+    <h2 style="display: flex; align-items: center; gap: 10px;">
+      <i class="fas fa-folder-open" style="font-size: 1.5rem; color: var(--ide-text-muted);"></i>
+      Selected Work
+    </h2>
+    <div class="project-grid">
 
-          <div class="skills">
-            <h3>Skills</h3>
-            <div class="skill-tags">
-              <span>JavaScript</span>
-              <span>HTML5 & CSS3</span>
-              <span>React</span>
-              <span>Node.js</span>
-              <span>UI/UX Design</span>
-            </div>
-          </div>
+      <div class="project-card">
+        <div class="card-header">
+          <h3 class="card-title">Analytics_Dashboard</h3>
+          <i class="fas fa-external-link-alt" style="color: var(--ide-text-muted);"></i>
+        </div>
+        <p class="card-desc">Real-time data visualization platform processing 50k+ events/sec.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Go</span>
         </div>
       </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <h3 class="card-title">Secure_Chat_Protocol</h3>
+          <i class="fas fa-lock" style="color: var(--ide-text-muted);"></i>
+        </div>
+        <p class="card-desc">End-to-end encrypted messaging app with zero-knowledge architecture.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Rust</span>
+          <span class="tech-tag">WebSockets</span>
+          <span class="tech-tag">Tokio</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <h3 class="card-title">E-Commerce_Core</h3>
+          <i class="fas fa-shopping-cart" style="color: var(--ide-text-muted);"></i>
+        </div>
+        <p class="card-desc">Headless commerce backend microservices designed for scalability.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">K8s</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section id="projects" class="section bg-light">
-    <div class="container">
-      <h2 class="section-title">My Projects</h2>
-      <div class="projects-grid">
+  <section id="experience" class="section container">
+    <h2><span class="code-keyword">git</span> log --oneline</h2>
+    <div class="timeline">
 
-        <div class="project-card">
-          <div class="card-content">
-            <h3>Project One</h3>
-            <p>A web application that helps users track their daily tasks with a beautiful UI.</p>
-            <div class="card-links">
-              <a href="#"><i class="fab fa-github"></i> Code</a>
-              <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="card-content">
-            <h3>Project Two</h3>
-            <p>An e-commerce platform dashboard built with vanilla JavaScript and CSS Grid.</p>
-            <div class="card-links">
-              <a href="#"><i class="fab fa-github"></i> Code</a>
-              <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="card-content">
-            <h3>Project Three</h3>
-            <p>A weather visualization tool using a public API to fetch real-time data.</p>
-            <div class="card-links">
-              <a href="#"><i class="fab fa-github"></i> Code</a>
-              <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
-          </div>
-        </div>
-
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-meta">HEAD -> main (2023 - Present)</span>
+        <h3 class="timeline-role">Senior Frontend Engineer</h3>
+        <p>Tech Solutions Inc.</p>
       </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-meta">commit a1b2c3 (2021 - 2023)</span>
+        <h3 class="timeline-role">Full Stack Developer</h3>
+        <p>Creative Agency</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-meta">commit initial (2018 - 2021)</span>
+        <h3 class="timeline-role">CS Degree</h3>
+        <p>University of Technology</p>
+      </div>
+
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-text">Currently open for new opportunities. Let's build something amazing together.</p>
-      <a href="mailto:your.email@example.com" class="btn btn-outline">Say Hello</a>
-
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
+  <section id="contact" class="section container" style="text-align: center;">
+    <div style="background: #000; padding: 30px; border-radius: 6px; border: 1px solid var(--ide-border); display: inline-block; text-align: left; min-width: 300px;">
+      <p style="font-family: var(--font-code); color: var(--jb-green); margin-bottom: 10px;">➜  ~  echo "Let's work together"</p>
+      <p style="font-family: var(--font-code); color: var(--ide-text-main); margin-bottom: 20px;">Let's work together</p>
+      <a href="mailto:email@example.com" class="btn primary" style="width: 100%;">Send Email</a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    <p>Process finished with exit code 0</p>
   </footer>
 
-  <script>
-    // Simple script to add smooth scrolling behavior for older browsers
-    // and navbar background change on scroll
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
 </body>
 </html>
