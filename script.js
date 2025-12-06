@@ -1,45 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- Typing Effect ---
-    const textElement = document.querySelector(".text-typing");
-    if (textElement) {
-        const words = textElement.getAttribute("data-text").split(",");
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+    // --- Scroll Reveal Animation ---
+    // This adds the 'active' class to elements when they scroll into view
+    const revealElements = document.querySelectorAll(".reveal");
 
-        function type() {
-            const currentWord = words[wordIndex];
-
-            if (isDeleting) {
-                textElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                // Optional: Stop observing once revealed so it doesn't animate again
+                observer.unobserve(entry.target);
             }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // Trigger when 15% of the element is visible
+        rootMargin: "0px 0px -50px 0px"
+    });
 
-            if (!isDeleting && charIndex === currentWord.length) {
-                isDeleting = true;
-                setTimeout(type, 2000); // Pause at end of word
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(type, 500); // Pause before next word
-            } else {
-                setTimeout(type, isDeleting ? 100 : 200); // Typing speed
-            }
-        }
-        type();
-    }
+    revealElements.forEach(el => revealObserver.observe(el));
+
 
     // --- Smooth Scroll for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
+
+    // --- Mobile Menu Toggle ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            const isClosed = navLinks.style.display === 'none' || navLinks.style.display === '';
+            if (isClosed) {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'rgba(5,5,5,0.95)';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderBottom = '1px solid #333';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+    }
 });
