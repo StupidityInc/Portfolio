@@ -1,27 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Custom Cursor Logic ---
+  // --- Custom Cursor Logic (Performance Optimized) ---
   const cursorDot = document.querySelector('.cursor-dot');
   const cursorCircle = document.querySelector('.cursor-circle');
 
-  // Only enable custom cursor on desktop
+  // Mouse position state
+  let mouseX = 0;
+  let mouseY = 0;
+  // Circle position state (for trailing effect)
+  let circleX = 0;
+  let circleY = 0;
+
+  // Only enable on desktop
   if (window.matchMedia("(min-width: 768px)").matches) {
+
+    // 1. Track mouse position on move
     window.addEventListener('mousemove', (e) => {
-      const posX = e.clientX;
-      const posY = e.clientY;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
 
-      // Dot follows immediately
-      cursorDot.style.left = `${posX}px`;
-      cursorDot.style.top = `${posY}px`;
-
-      // Circle follows with slight lag
-      cursorCircle.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-      }, { duration: 500, fill: "forwards" });
+      // Move dot instantly
+      if (cursorDot) {
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+      }
     });
 
-    // Hover effect
+    // 2. Animate circle with a smooth loop (No crashes!)
+    function animateCursor() {
+      // Linear interpolation for smooth trailing (0.1 = speed)
+      const speed = 0.15;
+
+      circleX += (mouseX - circleX) * speed;
+      circleY += (mouseY - circleY) * speed;
+
+      if (cursorCircle) {
+        cursorCircle.style.left = `${circleX}px`;
+        cursorCircle.style.top = `${circleY}px`;
+      }
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    // Start the loop
+    animateCursor();
+
+    // 3. Hover Effects
     const interactiveElements = document.querySelectorAll('a, button, .bento-box, .timeline-content');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
@@ -33,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
 
-  if (hamburger) {
+  if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       const isClosed = navLinks.style.display === 'none' || navLinks.style.display === '';
       if (isClosed) {

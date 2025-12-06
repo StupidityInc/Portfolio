@@ -15,10 +15,27 @@
 }
 
 /* --- Base & Reset --- */
-* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Hide default cursor */ }
+* { margin: 0; padding: 0; box-sizing: border-box; } /* Removed 'cursor: none' from here for safety */
+
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-main); color: var(--text-main); background: var(--bg-white); line-height: 1.6; overflow-x: hidden; }
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  background: var(--bg-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* Only hide cursor on body to prevent UI issues */
+}
+
+/* Fallback: If on mobile/tablet, show default cursor */
+@media (max-width: 768px) {
+  body { cursor: auto; }
+}
+
 a { text-decoration: none; color: inherit; transition: 0.3s; cursor: none; }
+button { cursor: none; }
+
 h1, h2, h3 { font-weight: 700; color: var(--text-main); line-height: 1.2; }
 ul { list-style: none; }
 
@@ -26,12 +43,20 @@ ul { list-style: none; }
 .cursor-dot {
   width: 6px; height: 6px; background-color: var(--text-main); border-radius: 50%;
   position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); z-index: 9999; pointer-events: none;
+  /* Ensure it's hidden on touch devices */
+  display: none;
 }
 .cursor-circle {
   width: 30px; height: 30px; border: 1px solid rgba(0,0,0,0.2); border-radius: 50%;
   position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); z-index: 9998; pointer-events: none;
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  transition: width 0.2s, height 0.2s, background-color 0.2s; /* Only animate size/color, not position */
+  display: none;
 }
+
+@media (min-width: 768px) {
+  .cursor-dot, .cursor-circle { display: block; }
+}
+
 body.hovering .cursor-circle {
   width: 50px; height: 50px; background-color: rgba(0, 102, 204, 0.1); border-color: transparent;
 }
@@ -46,7 +71,7 @@ body.hovering .cursor-circle {
 .nav-links a:hover { color: var(--primary); }
 .btn-nav { padding: 10px 24px; background: var(--text-main); color: #fff !important; border-radius: 6px; font-weight: 600; }
 .btn-nav:hover { background: var(--primary); transform: translateY(-2px); }
-.hamburger { display: none; font-size: 1.5rem; }
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
 /* --- Hero Section --- */
 .hero { padding: 180px 0 100px; position: relative; overflow: hidden; }
