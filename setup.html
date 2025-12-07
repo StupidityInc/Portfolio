@@ -6,126 +6,93 @@
     <title>Uri Ben Eliezer | Workspace</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-workspace">
 
-<nav class="navbar">
+<nav class="nav">
     <div class="container nav-container">
-        <div class="logo"><i class="fas fa-terminal" style="margin-right: 8px; color:#5c6370;"></i> URI<span>.DEV</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html#projects">Project Explorer</a></li>
-            <li><a href="index.html#about">README.md</a></li>
-            <li><a href="setup.html" class="active">Workspace</a></li>
-            <li><a href="index.html#experience">git_log</a></li>
-        </ul>
-        <a href="index.html#contact" class="btn primary" style="padding: 6px 16px; font-size: 0.8rem;">Run Build</a>
+        <a href="index.html" class="logo">URIB<span class="text-accent">.DEV</span></a>
+
+        <div class="nav-links">
+            <a href="index.html#work" class="nav-link">Projects</a>
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="setup.html" class="nav-link active">Workspace</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
 </nav>
 
-<section class="hero" style="min-height: 50vh; padding-top: 100px;">
-    <div class="hero-content reveal">
-        <h1 style="font-size: 3rem; margin-bottom: 10px;">The Arsenal</h1>
-        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">The calibrated hardware and software that powers Uri Ben Eliezer's development workflow.</p>
-    </div>
-</section>
+<main>
+    <header class="hero container">
+        <div class="fade-in">
+            <div class="status-badge">System Config v3.0</div>
+            <h1 class="hero-name">The Environment</h1>
+            <h2 class="hero-subtitle">Optimized <span class="highlight">Fedora</span> Workflow.</h2>
+            <p class="hero-desc">
+                A development ecosystem built on Linux stability, JetBrains intelligence, and Proton privacy.
+            </p>
 
-<section class="section">
-    <div class="container">
-        <h2 class="reveal">Hardware.cfg</h2>
-
-        <div class="gear-grid">
-
-            <div class="gear-card reveal">
-                <i class="fas fa-laptop gear-icon"></i>
-                <h3>MacBook Pro 16"</h3>
-                <p>The main machine, chosen for UNIX stability and M-series performance.</p>
-                <ul class="specs-list">
-                    <li><span>Chip</span> <span>M2 Max</span></li>
-                    <li><span>Memory</span> <span>64GB Unified</span></li>
-                    <li><span>OS</span> <span>macOS Sonoma</span></li>
-                </ul>
+            <div class="stats-row">
+                <div class="stat-item"><span class="stat-number">Linux</span><span class="stat-label">Fedora OS</span></div>
+                <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">JetBrains</span></div>
+                <div class="stat-item"><span class="stat-number">Encrypted</span><span class="stat-label">Proton</span></div>
             </div>
-
-            <div class="gear-card reveal">
-                <i class="fas fa-desktop gear-icon"></i>
-                <h3>LG 5K Ultrafine</h3>
-                <p>High-DPI monitor essential for crisp text rendering and UI design.</p>
-                <ul class="specs-list">
-                    <li><span>Resolution</span> <span>5120x2880</span></li>
-                    <li><span>Size</span> <span>27-inch</span></li>
-                    <li><span>Color</span> <span>P3 Wide</span></li>
-                </ul>
-            </div>
-
-            <div class="gear-card reveal">
-                <i class="fas fa-keyboard gear-icon"></i>
-                <h3>Keychron Q1 (Custom)</h3>
-                <p>Tactile mechanical keyboard used for maximum coding comfort.</p>
-                <ul class="specs-list">
-                    <li><span>Switches</span> <span>Gateron Brown</span></li>
-                    <li><span>Layout</span> <span>75%</span></li>
-                </ul>
-            </div>
-
-            <div class="gear-card reveal">
-                <i class="fas fa-mouse gear-icon"></i>
-                <h3>MX Master 3S</h3>
-                <p>Ergonomic mouse with hyper-fast scroll wheel for rapid file navigation.</p>
-                <ul class="specs-list">
-                    <li><span>DPI</span> <span>8000</span></li>
-                    <li><span>Features</span> <span>Gesture Button</span></li>
-                </ul>
-            </div>
-
         </div>
-    </div>
-</section>
+    </header>
 
-<section class="section">
-    <div class="container">
-        <h2 class="reveal">Software.sh</h2>
+    <section class="section container">
+        <h2 class="section-title fade-in">Core.os</h2>
+        <div class="grid">
+            <article class="card fade-in">
+                <div class="card-header"><i class="fab fa-linux card-icon"></i></div>
+                <h3 class="card-title">Fedora Workstation</h3>
+                <p class="card-desc">My daily driver. Chosen for its balance of bleeding-edge packages and enterprise-grade stability.</p>
+                <div class="tech-tags"><span class="tag">GNOME 45</span><span class="tag">Wayland</span><span class="tag">DNF</span></div>
+            </article>
 
-        <div class="gear-grid">
+            <article class="card fade-in">
+                <div class="card-header"><i class="fas fa-terminal card-icon"></i></div>
+                <h3 class="card-title">Terminal Stack</h3>
+                <p class="card-desc">Custom ZSH environment with Powerlevel10k for instant git status and command execution time.</p>
+                <div class="tech-tags"><span class="tag">ZSH</span><span class="tag">TMUX</span><span class="tag">Vim</span></div>
+            </article>
 
-            <div class="gear-card reveal">
-                <i class="fas fa-code gear-icon"></i>
-                <h3>Visual Studio Code</h3>
-                <p>Primary editor used for all frontend and light backend work.</p>
-                <ul class="specs-list">
-                    <li><span>Theme</span> <span>Darcula</span></li>
-                    <li><span>Font</span> <span>JetBrains Mono</span></li>
-                </ul>
-            </div>
-
-            <div class="gear-card reveal">
-                <i class="fas fa-terminal gear-icon"></i>
-                <h3>iTerm2</h3>
-                <p>Customized terminal emulator optimized for ZSH and powerline status bars.</p>
-                <ul class="specs-list">
-                    <li><span>Shell</span> <span>Zsh</span></li>
-                    <li><span>Theme</span> <span>Monokai</span></li>
-                </ul>
-            </div>
-
-            <div class="gear-card reveal">
-                <i class="fas fa-database gear-icon"></i>
-                <h3>DataGrip</h3>
-                <p>JetBrains' database IDE for complex schema management and querying.</p>
-            </div>
-
-            <div class="gear-card reveal">
-                <i class="fab fa-docker gear-icon"></i>
-                <h3>Docker Desktop</h3>
-                <p>Essential tool for local environment isolation and orchestration.</p>
-            </div>
-
+            <article class="card fade-in">
+                <div class="card-header"><i class="fas fa-laptop card-icon"></i></div>
+                <h3 class="card-title">The Machine</h3>
+                <p class="card-desc">High-performance laptop optimized for compilation and virtualization.</p>
+                <div class="tech-tags"><span class="tag">32GB RAM</span><span class="tag">NVMe</span></div>
+            </article>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <p>&copy; 2024 Uri Ben Eliezer. Crafted with precision.</p>
+    <section class="section container">
+        <h2 class="section-title fade-in">Tools.sh</h2>
+        <div class="grid">
+            <article class="card fade-in">
+                <div class="card-header"><i class="fas fa-code-branch card-icon"></i></div>
+                <h3 class="card-title">JetBrains Suite</h3>
+                <p class="card-desc">The ultimate IDE collection. Used for everything from complex Java refactoring to Python data science.</p>
+                <div class="tech-tags"><span class="tag">IntelliJ Ultimate</span><span class="tag">PyCharm</span><span class="tag">CLion</span></div>
+            </article>
+
+            <article class="card fade-in">
+                <div class="card-header"><i class="fas fa-shield-alt card-icon"></i></div>
+                <h3 class="card-title">Proton Ecosystem</h3>
+                <p class="card-desc">Privacy-first communication and storage. Ensuring all data remains encrypted and secure.</p>
+                <div class="tech-tags"><span class="tag">Mail</span><span class="tag">Drive</span><span class="tag">VPN</span></div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; <span id="year"></span> Uri Ben Eliezer.</p>
 </footer>
 
 <script src="script.js"></script>
