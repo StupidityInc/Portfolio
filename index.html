@@ -6,188 +6,261 @@
     <title>Uri Ben Eliezer | Odyssia Scholar</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="scroll-progress" id="progressBar"></div>
+<!-- Boot Sequence Overlay -->
+<div class="boot-overlay" id="bootOverlay">
+    <div class="boot-content">
+        <div class="boot-line" style="--delay: 0">BIOS v3.7.1 ............ <span class="boot-ok">OK</span></div>
+        <div class="boot-line" style="--delay: 1">Memory Check 32768MB ... <span class="boot-ok">OK</span></div>
+        <div class="boot-line" style="--delay: 2">Loading kernel ......... <span class="boot-ok">OK</span></div>
+        <div class="boot-line" style="--delay: 3">Mounting /dev/uri ....... <span class="boot-ok">OK</span></div>
+        <div class="boot-line" style="--delay: 4">Starting interface ...... <span class="boot-ok">OK</span></div>
+        <div class="boot-progress"><div class="boot-bar" id="bootBar"></div></div>
+    </div>
+</div>
 
-<nav class="nav">
-    <div class="container nav-container">
-        <a href="index.html" class="logo">URIB<span class="text-accent">.ME</span></a>
+<!-- Grain Overlay -->
+<div class="grain"></div>
 
-        <div class="nav-links">
-            <a href="#work" class="nav-link">Projects</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="setup.html" class="nav-link">Workspace</a>
-            <a href="#contact" class="nav-link">Contact</a>
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="mainNav">
+    <div class="nav-inner">
+        <a href="index.html" class="logo">
+            <span class="logo-bracket">[</span>uri<span class="logo-dot">.</span>b<span class="logo-bracket">]</span>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#work" class="nav-link" data-text="projects">projects</a>
+            <a href="#about" class="nav-link" data-text="about">about</a>
+            <a href="setup.html" class="nav-link" data-text="workspace">workspace</a>
+            <a href="#contact" class="nav-link" data-text="contact">contact</a>
         </div>
 
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="nav-time" id="navTime"></div>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
 
 <main>
-    <header class="hero container">
-        <div class="fade-in">
-            <div class="status-badge">
-                <span class="status-dot"></span> 10th Grade &bull; Odyssia Program
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span class="tag-dot"></span>
+                <span class="tag-text">10th Grade · Odyssia Program</span>
             </div>
 
-            <h1 class="hero-name">Uri Ben Eliezer</h1>
-            <h2 class="hero-subtitle">
-                Aspiring <span class="highlight">Software Engineer</span>.
-            </h2>
+            <h1 class="hero-name" data-text="Uri Ben Eliezer">
+                <span class="name-line">Uri Ben</span>
+                <span class="name-line name-accent">Eliezer</span>
+            </h1>
+
+            <p class="hero-role">
+                Aspiring <span class="role-highlight">Software Engineer</span>
+            </p>
 
             <p class="hero-desc">
                 Passionate developer since childhood, currently mastering CS & Math at Tel Aviv University through the elite Odyssia program.
             </p>
 
-            <div class="btn-group">
-                <a href="#work" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            <div class="hero-actions">
+                <a href="#work" class="btn-primary">
+                    <span>View Projects</span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2"/></svg>
+                </a>
+                <a href="#contact" class="btn-ghost">Contact Me</a>
             </div>
 
-            <div class="stats-row">
-                <div class="stat-item">
-                    <span class="stat-number">2019</span>
-                    <span class="stat-label">Started Coding</span>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-val">2019</span>
+                    <span class="stat-key">started_coding</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">10th</span>
-                    <span class="stat-label">Grade Level</span>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-val">10th</span>
+                    <span class="stat-key">grade_level</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">Odyssia</span>
-                    <span class="stat-label">Elite Track</span>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-val">Odyssia</span>
+                    <span class="stat-key">elite_track</span>
                 </div>
             </div>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </header>
 
-    <section id="work" class="section container">
-        <h2 class="section-title fade-in">Selected Projects</h2>
-        <div class="grid">
+    <!-- PROJECTS -->
+    <section id="work" class="section">
+        <div class="section-header">
+            <span class="section-index">01</span>
+            <h2 class="section-title">Selected Projects</h2>
+        </div>
 
-            <article class="card fade-in">
-                <div class="card-header">
-                    <i class="fas fa-layer-group card-icon"></i>
-                    <h3 class="card-title">Project Alpha</h3>
+        <div class="projects-grid">
+            <article class="project-card" data-anim>
+                <div class="project-number">01</div>
+                <div class="project-body">
+                    <div class="project-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Project Alpha</h3>
+                    <p>A template for a future high-performance backend system. Placeholder for architectural description and tech stack utilization.</p>
+                    <div class="project-tags">
+                        <span>Language</span>
+                        <span>Framework</span>
+                        <span>Database</span>
+                    </div>
                 </div>
-                <p class="card-desc">A template for a future high-performance backend system. Placeholder for architectural description and tech stack utilization.</p>
-                <div class="tech-tags">
-                    <span class="tag">Language</span>
-                    <span class="tag">Framework</span>
-                    <span class="tag">Database</span>
+                <div class="project-status">
+                    <i class="fas fa-clock"></i> Coming Soon
                 </div>
-                <span class="card-link">Coming Soon <i class="fas fa-clock"></i></span>
             </article>
 
-            <article class="card fade-in">
-                <div class="card-header">
-                    <i class="fas fa-code-branch card-icon"></i>
-                    <h3 class="card-title">Project Beta</h3>
+            <article class="project-card" data-anim>
+                <div class="project-number">02</div>
+                <div class="project-body">
+                    <div class="project-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>Project Beta</h3>
+                    <p>Future placeholder for an algorithm-heavy application or data analysis tool designed for optimization.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>NumPy</span>
+                        <span>AI</span>
+                    </div>
                 </div>
-                <p class="card-desc">Future placeholder for an algorithm-heavy application or data analysis tool designed for optimization.</p>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">NumPy</span>
-                    <span class="tag">AI</span>
+                <div class="project-status">
+                    <i class="fas fa-clock"></i> Coming Soon
                 </div>
-                <span class="card-link">Coming Soon <i class="fas fa-clock"></i></span>
             </article>
 
-            <article class="card fade-in">
-                <div class="card-header">
-                    <i class="fas fa-terminal card-icon"></i>
-                    <h3 class="card-title">Project Gamma</h3>
+            <article class="project-card" data-anim>
+                <div class="project-number">03</div>
+                <div class="project-body">
+                    <div class="project-icon"><i class="fas fa-terminal"></i></div>
+                    <h3>Project Gamma</h3>
+                    <p>Space reserved for a CLI tool or system utility. Will demonstrate proficiency in low-level programming.</p>
+                    <div class="project-tags">
+                        <span>C++</span>
+                        <span>Rust</span>
+                        <span>System</span>
+                    </div>
                 </div>
-                <p class="card-desc">Space reserved for a CLI tool or system utility. Will demonstrate proficiency in low-level programming.</p>
-                <div class="tech-tags">
-                    <span class="tag">C++</span>
-                    <span class="tag">Rust</span>
-                    <span class="tag">System</span>
+                <div class="project-status">
+                    <i class="fas fa-clock"></i> Coming Soon
                 </div>
-                <span class="card-link">Coming Soon <i class="fas fa-clock"></i></span>
             </article>
-
         </div>
     </section>
 
-    <section id="about" class="section container">
-        <div class="about-grid">
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <span class="section-index">02</span>
+            <h2 class="section-title">Academic Journey</h2>
+        </div>
 
-            <div class="about-text fade-in">
-                <h2 class="section-title">Academic Journey</h2>
-                <p>Started programming as a hobby at a young age, I am now formalizing my knowledge through the <strong>Odyssia</strong> program.</p>
+        <div class="about-layout">
+            <div class="about-text" data-anim>
+                <p class="about-intro">Started programming as a hobby at a young age, I am now formalizing my knowledge through the <strong>Odyssia</strong> program.</p>
 
-                <div class="degree-card">
-                    <div class="degree-header">
-                        <div class="degree-icon"><i class="fas fa-university"></i></div>
-                        <div class="degree-info">
-                            <h4>Tel Aviv University</h4>
-                            <p>B.Sc. Computer Science & Math</p>
+                <div class="degree-widget">
+                    <div class="degree-top">
+                        <div class="degree-uni">
+                            <i class="fas fa-university"></i>
+                            <div>
+                                <h4>Tel Aviv University</h4>
+                                <span>B.Sc. Computer Science & Math</span>
+                            </div>
                         </div>
-                        <div class="degree-percentage">10/120 pts</div>
+                        <div class="degree-pct">10<small>/120</small></div>
                     </div>
 
-                    <div class="progress-track">
-                        <div class="progress-fill" style="width: 8.3%;"></div>
+                    <div class="degree-bar-track">
+                        <div class="degree-bar-fill" style="--target-width: 8.3%"></div>
                     </div>
 
-                    <details class="course-list">
-                        <summary>View Completed Courses</summary>
-                        <ul class="course-items">
+                    <details class="degree-courses">
+                        <summary>
+                            <span>View Completed Courses</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <ul>
                             <li>
                                 <span>Extended Intro to CS</span>
-                                <span class="course-score">6 pts</span>
+                                <code>6 pts</code>
                             </li>
                             <li>
                                 <span>Discrete Mathematics 1</span>
-                                <span class="course-score">4 pts</span>
+                                <code>4 pts</code>
                             </li>
                         </ul>
                     </details>
                 </div>
-
             </div>
 
-
-            <div class="skills-wrapper fade-in">
-                <h3 class="skills-title">Technical Stack</h3>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">C#</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">Linux</span>
-                    <span class="tag">Algorithms</span>
-                    <span class="tag">Data Structures</span>
+            <div class="skills-panel" data-anim>
+                <h3>Technical Stack</h3>
+                <div class="skills-grid">
+                    <div class="skill-chip" style="--i:0">Python</div>
+                    <div class="skill-chip" style="--i:1">Java</div>
+                    <div class="skill-chip" style="--i:2">C#</div>
+                    <div class="skill-chip" style="--i:3">C++</div>
+                    <div class="skill-chip" style="--i:4">Git</div>
+                    <div class="skill-chip" style="--i:5">Linux</div>
+                    <div class="skill-chip" style="--i:6">Algorithms</div>
+                    <div class="skill-chip" style="--i:7">Data Structures</div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <section id="contact" class="section container contact-section fade-in">
-        <button class="copy-email-btn" data-email="work@urib.me">
-            <span class="email-text">work@urib.me</span>
-            <i class="far fa-copy"></i>
-        </button>
-        <div id="copy-feedback">COPIED</div>
+    <!-- CONTACT -->
+    <section id="contact" class="section section-contact">
+        <div class="section-header">
+            <span class="section-index">03</span>
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
 
-        <div class="socials">
-            <a href="https://github.com/StupidityInc" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/uri.be_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="contact-box" data-anim>
+            <button class="email-btn" id="copyEmail" data-email="work@urib.me">
+                <span class="email-label">work@urib.me</span>
+                <span class="email-copy-icon"><i class="far fa-copy"></i></span>
+            </button>
+            <div class="copy-toast" id="copyToast">Copied!</div>
+        </div>
+
+        <div class="socials" data-anim>
+            <a href="https://github.com/StupidityInc" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.instagram.com/uri.be_/" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
         </div>
     </section>
 </main>
 
 <footer class="footer">
-    <p>&copy; <span id="year"></span> Uri Ben Eliezer.</p>
+    <div class="footer-inner">
+        <span>&copy; <span id="year"></span> Uri Ben Eliezer</span>
+        <span class="footer-tag">built different.</span>
+    </div>
 </footer>
 
 <script src="script.js"></script>

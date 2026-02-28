@@ -1,108 +1,131 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 1. Dynamic Year Update (Auto-updates the footer year)
-    const yearSpan = document.getElementById('year');
-    if(yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+    // ── Year ──
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // ── Live Clock in Nav ──
+    const navTime = document.getElementById('navTime');
+    if (navTime) {
+        const tick = () => {
+            const now = new Date();
+            navTime.textContent = now.toLocaleTimeString('en-GB', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        };
+        tick();
+        setInterval(tick, 1000);
     }
 
-    // 2. Scroll Reveal Animation (Triggers fade-in effects)
-    const observer = new IntersectionObserver((entries) => {
+    // ── Cursor Glow ──
+    const glow = document.getElementById('cursorGlow');
+    if (glow && window.matchMedia('(pointer: fine)').matches) {
+        let mx = 0, my = 0, gx = 0, gy = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+        (function animate() {
+            gx += (mx - gx) * 0.08;
+            gy += (my - gy) * 0.08;
+            glow.style.left = gx + 'px';
+            glow.style.top = gy + 'px';
+            requestAnimationFrame(animate);
+        })();
+    } else if (glow) {
+        glow.style.display = 'none';
+    }
+
+    // ── Hide Nav on Scroll Down, Show on Scroll Up ──
+    const nav = document.getElementById('mainNav');
+    let lastScroll = 0;
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            const current = window.scrollY;
+            if (current > lastScroll && current > 120) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
+            }
+            lastScroll = current;
+        }, { passive: true });
+    }
+
+    // ── Hamburger ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // ── Scroll Reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-anim]').forEach(el => revealObserver.observe(el));
 
-    // 3. Scroll Progress Bar (Top of the screen line)
-    const progressBar = document.getElementById("progressBar");
-    if(progressBar) {
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-        });
-    }
-
-    // 4. Mobile Menu Logic (Hamburger menu)
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-link');
-
-    if (hamburger && navLinks) {
-        // Toggle menu on hamburger click
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-
-            // Icon Toggle (Bars <-> Times)
-            const icon = hamburger.querySelector('i');
-            if (icon) {
-                if(navLinks.classList.contains('active')){
-                    icon.classList.replace('fa-bars', 'fa-times');
-                } else {
-                    icon.classList.replace('fa-times', 'fa-bars');
-                }
-            }
-        });
-
-        // Close menu when a link is clicked
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = hamburger.querySelector('i');
-                if(icon) icon.classList.replace('fa-times', 'fa-bars');
-            });
-        });
-    }
-
-    // 5. Copy Email Logic (Works for both pages)
-    const copyBtn = document.querySelector('.copy-email-btn');
-    const feedback = document.getElementById("copy-feedback");
-
-    if(copyBtn && feedback) {
-        copyBtn.addEventListener('click', () => {
-            // Tries to get email from HTML data-email="...", falls back to default
-            const email = copyBtn.getAttribute('data-email') || "work@urib.me";
-
-            navigator.clipboard.writeText(email).then(() => {
-                // Success Animation
-                feedback.style.opacity = "1";
-                copyBtn.style.transform = "scale(0.96)";
-
-                setTimeout(() => {
-                    copyBtn.style.transform = "scale(1)";
-                }, 150);
-
-                setTimeout(() => {
-                    feedback.style.opacity = "0";
-                }, 2000);
-            }).catch(err => {
-                console.error("Failed to copy:", err);
-                feedback.textContent = "ERROR COPYING";
-                feedback.style.opacity = "1";
-            });
-        });
-    }
-    // 6. Animate Degree Bar
-    const degreeBar = document.querySelector('.progress-fill');
-    if(degreeBar) {
-        // Force width to 0 initially
-        const targetWidth = degreeBar.style.width;
-        degreeBar.style.width = '0%';
-
+    // ── Degree Bar Animation ──
+    const degreeBar = document.querySelector('.degree-bar-fill');
+    if (degreeBar) {
         const degreeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    // Restore width to trigger CSS transition
-                    entry.target.style.width = targetWidth;
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
                 }
             });
         }, { threshold: 0.5 });
-
         degreeObserver.observe(degreeBar);
+    }
+
+    // ── Copy Email ──
+    const copyBtn = document.getElementById('copyEmail');
+    const copyToast = document.getElementById('copyToast');
+    if (copyBtn && copyToast) {
+        copyBtn.addEventListener('click', () => {
+            const email = copyBtn.getAttribute('data-email') || 'work@urib.me';
+            navigator.clipboard.writeText(email).then(() => {
+                copyToast.classList.add('show');
+                copyBtn.style.transform = 'scale(0.97)';
+                setTimeout(() => { copyBtn.style.transform = ''; }, 150);
+                setTimeout(() => { copyToast.classList.remove('show'); }, 2000);
+            }).catch(() => {
+                copyToast.textContent = 'Error!';
+                copyToast.classList.add('show');
+                setTimeout(() => {
+                    copyToast.textContent = 'Copied!';
+                    copyToast.classList.remove('show');
+                }, 2000);
+            });
+        });
+    }
+
+    // ── Boot Sequence (only on index page) ──
+    const bootOverlay = document.getElementById('bootOverlay');
+    if (bootOverlay) {
+        // Check if this session already booted
+        if (sessionStorage.getItem('booted')) {
+            bootOverlay.style.display = 'none';
+            // Remove delays on hero elements
+            document.querySelectorAll('.hero-tag, .name-line, .hero-role, .hero-desc, .hero-actions, .hero-stats, .hero-scroll-hint').forEach(el => {
+                el.style.animationDelay = '0.1s';
+            });
+        } else {
+            sessionStorage.setItem('booted', '1');
+        }
     }
 });
