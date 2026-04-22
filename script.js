@@ -19,22 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(tick, 1000);
     }
 
-    // ── Cursor Glow ──
-    const glow = document.getElementById('cursorGlow');
-    if (glow && window.matchMedia('(pointer: fine)').matches) {
-        let mx = 0, my = 0, gx = 0, gy = 0;
-        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-        (function animate() {
-            gx += (mx - gx) * 0.08;
-            gy += (my - gy) * 0.08;
-            glow.style.left = gx + 'px';
-            glow.style.top = gy + 'px';
-            requestAnimationFrame(animate);
-        })();
-    } else if (glow) {
-        glow.style.display = 'none';
-    }
-
     // ── Hide Nav on Scroll Down, Show on Scroll Up ──
     const nav = document.getElementById('mainNav');
     let lastScroll = 0;
@@ -114,18 +98,66 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ── Boot Sequence (only on index page) ──
-    const bootOverlay = document.getElementById('bootOverlay');
-    if (bootOverlay) {
-        // Check if this session already booted
-        if (sessionStorage.getItem('booted')) {
-            bootOverlay.style.display = 'none';
-            // Remove delays on hero elements
-            document.querySelectorAll('.hero-tag, .name-line, .hero-role, .hero-desc, .hero-actions, .hero-stats, .hero-scroll-hint').forEach(el => {
-                el.style.animationDelay = '0.1s';
+    // ── Copy BTC ──
+    const btcBtn = document.getElementById('copyBtc');
+    const btcToast = document.getElementById('btcToast');
+    if (btcBtn && btcToast) {
+        btcBtn.addEventListener('click', () => {
+            const btc = btcBtn.getAttribute('data-btc') || '';
+            navigator.clipboard.writeText(btc).then(() => {
+                btcToast.classList.add('show');
+                btcBtn.style.transform = 'scale(0.97)';
+                setTimeout(() => { btcBtn.style.transform = ''; }, 150);
+                setTimeout(() => { btcToast.classList.remove('show'); }, 2000);
+            }).catch(() => {
+                btcToast.textContent = 'Error!';
+                btcToast.classList.add('show');
+                setTimeout(() => {
+                    btcToast.textContent = 'Copied!';
+                    btcToast.classList.remove('show');
+                }, 2000);
             });
-        } else {
-            sessionStorage.setItem('booted', '1');
-        }
+        });
+    }
+
+    // ── Hero Parallax ──
+    const heroGrid = document.querySelector('.hero-bg-grid');
+    if (heroGrid) {
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY * 0.15;
+            heroGrid.style.transform = `translateY(${y}px)`;
+        }, { passive: true });
+    }
+
+    // ── Spotlight Effect on Focus Cards ──
+    document.querySelectorAll('.focus-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+        });
+    });
+
+    // ── Magnetic Buttons ──
+    const magneticEls = document.querySelectorAll('.btn-primary, .btn-ghost, .social-link, .back-to-top');
+    magneticEls.forEach(el => {
+        el.addEventListener('mousemove', e => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = '';
+        });
+    });
+
+    // ── Back to Top Smooth Scroll ──
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        backToTop.addEventListener('click', e => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 });

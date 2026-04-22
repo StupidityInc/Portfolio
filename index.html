@@ -3,43 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uri Ben Eliezer | Odyssia Scholar</title>
+    <title>Uri Ben Eliezer | Software Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- Boot Sequence Overlay -->
-<div class="boot-overlay" id="bootOverlay">
-    <div class="boot-content">
-        <div class="boot-line" style="--delay: 0">BIOS v3.7.1 ............ <span class="boot-ok">OK</span></div>
-        <div class="boot-line" style="--delay: 1">Memory Check 32768MB ... <span class="boot-ok">OK</span></div>
-        <div class="boot-line" style="--delay: 2">Loading kernel ......... <span class="boot-ok">OK</span></div>
-        <div class="boot-line" style="--delay: 3">Mounting /dev/uri ....... <span class="boot-ok">OK</span></div>
-        <div class="boot-line" style="--delay: 4">Starting interface ...... <span class="boot-ok">OK</span></div>
-        <div class="boot-progress"><div class="boot-bar" id="bootBar"></div></div>
-    </div>
-</div>
-
-<!-- Grain Overlay -->
-<div class="grain"></div>
-
-<!-- Cursor Glow -->
-<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- Navigation -->
 <nav class="nav" id="mainNav">
     <div class="nav-inner">
-        <a href="index.html" class="logo">
-            <span class="logo-bracket">[</span>uri<span class="logo-dot">.</span>b<span class="logo-bracket">]</span>
-        </a>
+        <a href="index.html" class="logo">urib.me</a>
 
         <div class="nav-links" id="navLinks">
-            <a href="#work" class="nav-link" data-text="projects">projects</a>
-            <a href="#about" class="nav-link" data-text="about">about</a>
-            <a href="setup.html" class="nav-link" data-text="workspace">workspace</a>
-            <a href="#contact" class="nav-link" data-text="contact">contact</a>
+            <a href="#focus" class="nav-link">Focus</a>
+            <a href="#story" class="nav-link">Story</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
 
         <div class="nav-time" id="navTime"></div>
@@ -54,182 +33,148 @@
     <!-- HERO -->
     <header class="hero">
         <div class="hero-bg-grid"></div>
+
+        <!-- Color Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
         <div class="hero-content">
             <div class="hero-tag">
                 <span class="tag-dot"></span>
-                <span class="tag-text">10th Grade · Odyssia Program</span>
+                <span class="tag-text">Odyssia Program</span>
             </div>
 
-            <h1 class="hero-name" data-text="Uri Ben Eliezer">
+            <h1 class="hero-name">
                 <span class="name-line">Uri Ben</span>
                 <span class="name-line name-accent">Eliezer</span>
             </h1>
 
             <p class="hero-role">
-                Aspiring <span class="role-highlight">Software Engineer</span>
+                Software Engineer
             </p>
 
             <p class="hero-desc">
-                Passionate developer since childhood, currently mastering CS & Math at Tel Aviv University through the elite Odyssia program.
+                Started coding in Python as a kid out of pure curiosity. Now formalizing that obsession through the Odyssia program at Tel Aviv University.
             </p>
 
             <div class="hero-actions">
-                <a href="#work" class="btn-primary">
-                    <span>View Projects</span>
+                <a href="#focus" class="btn-primary">
+                    <span>What I'm Working On</span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2"/></svg>
                 </a>
                 <a href="#contact" class="btn-ghost">Contact Me</a>
             </div>
 
             <div class="hero-stats">
-                <div class="stat">
+                <div class="stat" style="--i:0">
                     <span class="stat-val">2019</span>
-                    <span class="stat-key">started_coding</span>
+                    <span class="stat-key">Started coding</span>
                 </div>
                 <div class="stat-divider"></div>
-                <div class="stat">
+                <div class="stat" style="--i:1">
                     <span class="stat-val">10th</span>
-                    <span class="stat-key">grade_level</span>
+                    <span class="stat-key">Grade</span>
                 </div>
                 <div class="stat-divider"></div>
-                <div class="stat">
+                <div class="stat" style="--i:2">
                     <span class="stat-val">Odyssia</span>
-                    <span class="stat-key">elite_track</span>
+                    <span class="stat-key">Program</span>
                 </div>
             </div>
         </div>
 
         <div class="hero-scroll-hint">
-            <span>scroll</span>
+            <span>Scroll</span>
             <div class="scroll-line"></div>
         </div>
+
+        <div class="hero-gradient-line"></div>
     </header>
 
-    <!-- PROJECTS -->
-    <section id="work" class="section">
+    <!-- STORY -->
+    <section id="story" class="section">
         <div class="section-header">
             <span class="section-index">01</span>
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 class="section-title">How I Got Here</h2>
         </div>
 
-        <div class="projects-grid">
-            <article class="project-card" data-anim>
-                <div class="project-number">01</div>
-                <div class="project-body">
-                    <div class="project-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Project Alpha</h3>
-                    <p>A template for a future high-performance backend system. Placeholder for architectural description and tech stack utilization.</p>
-                    <div class="project-tags">
-                        <span>Language</span>
-                        <span>Framework</span>
-                        <span>Database</span>
-                    </div>
-                </div>
-                <div class="project-status">
-                    <i class="fas fa-clock"></i> Coming Soon
-                </div>
-            </article>
+        <div class="story-layout">
+            <div class="story-text" data-anim>
+                <p>I started programming in Python at a young age — not because someone told me to, but because I wanted to understand how things worked. Breaking stuff and figuring out how to fix it became a habit, then an obsession.</p>
 
-            <article class="project-card" data-anim>
-                <div class="project-number">02</div>
-                <div class="project-body">
-                    <div class="project-icon"><i class="fas fa-code-branch"></i></div>
-                    <h3>Project Beta</h3>
-                    <p>Future placeholder for an algorithm-heavy application or data analysis tool designed for optimization.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>NumPy</span>
-                        <span>AI</span>
-                    </div>
-                </div>
-                <div class="project-status">
-                    <i class="fas fa-clock"></i> Coming Soon
-                </div>
-            </article>
+                <p>At 14, I joined the <strong>Odyssia program</strong>, an accelerated track for CS and Mathematics at Tel Aviv University. It wasn't just about moving faster; it was about being around people who take ideas seriously. That's where raw curiosity turned into disciplined thinking.</p>
 
-            <article class="project-card" data-anim>
-                <div class="project-number">03</div>
-                <div class="project-body">
-                    <div class="project-icon"><i class="fas fa-terminal"></i></div>
-                    <h3>Project Gamma</h3>
-                    <p>Space reserved for a CLI tool or system utility. Will demonstrate proficiency in low-level programming.</p>
-                    <div class="project-tags">
-                        <span>C++</span>
-                        <span>Rust</span>
-                        <span>System</span>
+                <p>I'm not just collecting languages or frameworks. I'm learning how to build things that actually hold up.</p>
+            </div>
+
+            <div class="degree-widget" data-anim>
+                <div class="degree-top">
+                    <div class="degree-uni">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <h4>Tel Aviv University</h4>
+                            <span>B.Sc. Computer Science & Math</span>
+                        </div>
                     </div>
+                    <div class="degree-pct">10<small>/120</small></div>
                 </div>
-                <div class="project-status">
-                    <i class="fas fa-clock"></i> Coming Soon
+
+                <div class="degree-bar-track">
+                    <div class="degree-bar-fill" style="--target-width: 8.3%"></div>
                 </div>
-            </article>
+
+                <details class="degree-courses">
+                    <summary>
+                        <span>View Completed Courses</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <ul>
+                        <li>
+                            <span>Extended Intro to CS</span>
+                            <code>6 pts</code>
+                        </li>
+                        <li>
+                            <span>Discrete Mathematics 1</span>
+                            <code>4 pts</code>
+                        </li>
+                    </ul>
+                </details>
+            </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
+    <!-- CURRENT FOCUS -->
+    <section id="focus" class="section">
         <div class="section-header">
             <span class="section-index">02</span>
-            <h2 class="section-title">Academic Journey</h2>
+            <h2 class="section-title">What I'm Working On</h2>
         </div>
 
-        <div class="about-layout">
-            <div class="about-text" data-anim>
-                <p class="about-intro">Started programming as a hobby at a young age, I am now formalizing my knowledge through the <strong>Odyssia</strong> program.</p>
+        <div class="focus-grid">
+            <article class="focus-card" data-anim>
+                <div class="focus-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI & Machine Learning</h3>
+                <p>Exploring how intelligent systems are built. From understanding models to experimenting with practical applications.</p>
+            </article>
 
-                <div class="degree-widget">
-                    <div class="degree-top">
-                        <div class="degree-uni">
-                            <i class="fas fa-university"></i>
-                            <div>
-                                <h4>Tel Aviv University</h4>
-                                <span>B.Sc. Computer Science & Math</span>
-                            </div>
-                        </div>
-                        <div class="degree-pct">10<small>/120</small></div>
-                    </div>
+            <article class="focus-card" data-anim>
+                <div class="focus-icon"><i class="fas fa-code-branch"></i></div>
+                <h3>Algorithms & Problem Solving</h3>
+                <p>Deep-diving into data structures and competitive programming. The foundation that makes everything else possible.</p>
+            </article>
 
-                    <div class="degree-bar-track">
-                        <div class="degree-bar-fill" style="--target-width: 8.3%"></div>
-                    </div>
-
-                    <details class="degree-courses">
-                        <summary>
-                            <span>View Completed Courses</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </summary>
-                        <ul>
-                            <li>
-                                <span>Extended Intro to CS</span>
-                                <code>6 pts</code>
-                            </li>
-                            <li>
-                                <span>Discrete Mathematics 1</span>
-                                <code>4 pts</code>
-                            </li>
-                        </ul>
-                    </details>
-                </div>
-            </div>
-
-            <div class="skills-panel" data-anim>
-                <h3>Technical Stack</h3>
-                <div class="skills-grid">
-                    <div class="skill-chip" style="--i:0">Python</div>
-                    <div class="skill-chip" style="--i:1">Java</div>
-                    <div class="skill-chip" style="--i:2">C#</div>
-                    <div class="skill-chip" style="--i:3">C++</div>
-                    <div class="skill-chip" style="--i:4">Git</div>
-                    <div class="skill-chip" style="--i:5">Linux</div>
-                    <div class="skill-chip" style="--i:6">Algorithms</div>
-                    <div class="skill-chip" style="--i:7">Data Structures</div>
-                </div>
-            </div>
+            <article class="focus-card" data-anim>
+                <div class="focus-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Building in Public</h3>
+                <p>Experiments, side projects, and the process of figuring it out as I go.</p>
+            </article>
         </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section section-contact">
+        <div class="contact-bg"></div>
         <div class="section-header">
             <span class="section-index">03</span>
             <h2 class="section-title">Get In Touch</h2>
@@ -241,6 +186,16 @@
                 <span class="email-copy-icon"><i class="far fa-copy"></i></span>
             </button>
             <div class="copy-toast" id="copyToast">Copied!</div>
+        </div>
+
+        <div class="btc-box" data-anim>
+            <button class="btc-btn" id="copyBtc" data-btc="bc1q2lvsdr5qu4ktp4nzdnu2mftsle6hgk2dlszyka">
+                <i class="fab fa-bitcoin"></i>
+                <span class="btc-label">bc1q2...zyka</span>
+                <span class="btc-copy-icon"><i class="far fa-copy"></i></span>
+            </button>
+            <div class="btc-toast" id="btcToast">Copied!</div>
+            <p class="btc-note">Support my work</p>
         </div>
 
         <div class="socials" data-anim>
@@ -259,7 +214,11 @@
 <footer class="footer">
     <div class="footer-inner">
         <span>&copy; <span id="year"></span> Uri Ben Eliezer</span>
-        <span class="footer-tag">built different.</span>
+        <span class="footer-back">
+            <a href="#" class="back-to-top">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+            </a>
+        </span>
     </div>
 </footer>
 
